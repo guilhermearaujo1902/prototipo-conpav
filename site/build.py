@@ -1,15 +1,20 @@
 #!/usr/bin/env python3
 """
-Gera o protótipo estático em ./ a partir de ../base-criacao/*.html (export UX Pilot / Next).
+Gera o protótipo estático em ../docs/ (GitHub Pages: branch main, pasta /docs)
+a partir de ../base-criacao/*.html (export UX Pilot / Next).
 """
 from __future__ import annotations
 
 import html as html_lib
 import re
+import shutil
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
-BASE = ROOT.parent / "base-criacao"
+REPO = Path(__file__).resolve().parent.parent
+SITE = Path(__file__).resolve().parent
+ROOT = REPO / "docs"
+BASE = REPO / "base-criacao"
+STATIC_JS = SITE / "js"
 
 END_TAIL = re.compile(r"\s*(width|height|title|class|style|frameborder|/>|>)")
 
@@ -185,12 +190,25 @@ def aggregate_css() -> str:
     return "\n\n".join(parts)
 
 
+def copy_static_js() -> None:
+    if not STATIC_JS.is_dir():
+        raise SystemExit(f"pasta JS de origem inexistente: {STATIC_JS}")
+    dest = ROOT / "js"
+    dest.mkdir(parents=True, exist_ok=True)
+    for f in STATIC_JS.glob("*.js"):
+        shutil.copy2(f, dest / f.name)
+
+
 def main() -> None:
+    ROOT.mkdir(parents=True, exist_ok=True)
     (ROOT / "css").mkdir(parents=True, exist_ok=True)
     (ROOT / "js").mkdir(parents=True, exist_ok=True)
 
+    copy_static_js()
+    (ROOT / ".nojekyll").write_text("", encoding="utf-8")
+
     (ROOT / "css" / "main.css").write_text(aggregate_css(), encoding="utf-8")
-    print("wrote", (ROOT / "css" / "main.css").relative_to(ROOT.parent))
+    print("wrote", (ROOT / "css" / "main.css").relative_to(REPO))
 
     for src_name, out_name, active, title_ov, plotly, extra_js in PAGES:
         src = BASE / src_name
@@ -214,7 +232,7 @@ def main() -> None:
 
         out_path = ROOT / out_name
         out_path.write_text(make_head(title=title, plotly=plotly) + body, encoding="utf-8")
-        print("wrote", out_path.relative_to(ROOT.parent))
+        print("wrote", out_path.relative_to(REPO))
 
 
 if __name__ == "__main__":
