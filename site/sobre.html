@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Conpav — Sobre o grupo</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.FontAwesomeConfig = { autoReplaceSvg: "nest" };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+</head>
+<body class="text-brand-navy font-sans flex flex-col m-0 p-0">
+
+    <header id="header" class="fixed top-0 w-full z-50 glass-card border-b border-brand-gray-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-navy text-white flex items-center justify-center font-bold text-lg shadow-lg shadow-brand-navy/20">GC</div>
+                <span class="font-bold text-xl tracking-tight text-brand-navy">Grupo Conpav</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8" aria-label="Principal">
+                <a href="index.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Início</a>
+                <a href="galeria.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Galeria</a>
+                <a href="blog.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Blog</a>
+                <a href="sobre.html" class="text-sm font-semibold text-brand-accent border-b-2 border-brand-accent pb-1">Sobre</a>
+                <a href="contato.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Contato</a>
+                <a href="orcamento.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Orçamento</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="orcamento.html" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-navy text-white text-sm font-semibold hover:bg-brand-navy/90 transition-all shadow-md shadow-brand-navy/10">
+                    <i class="fa-solid fa-calculator" aria-hidden="true"></i>
+                    Solicitar orçamento
+                </a>
+                <button type="button" id="nav-toggle" class="md:hidden text-brand-navy p-2 rounded-lg border border-brand-gray-200" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-nav" class="hidden fixed inset-x-0 top-20 z-40 md:hidden glass-card border-b border-brand-gray-200 shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto" role="dialog" aria-label="Menu">
+        <nav class="flex flex-col px-6 py-4">
+            <a href="index.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Início</a>
+            <a href="galeria.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Galeria</a>
+            <a href="blog.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Blog</a>
+            <a href="sobre.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Sobre</a>
+            <a href="contato.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Contato</a>
+            <a href="orcamento.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Orçamento</a>
+
+            <p class="text-xs font-bold text-brand-gray-400 uppercase tracking-wider mt-4 mb-2">Ferramentas</p>
+            <a href="calculadora-concreto.html" class="py-2 px-2 text-brand-gray-600">Calculadora de concreto</a>
+            <a href="calculadora-solar.html" class="py-2 px-2 text-brand-gray-600">Calculadora solar (UNISOLAR)</a>
+            <a href="sorteio.html" class="py-2 px-2 text-brand-gray-600">Sorteios</a>
+
+        </nav>
+    </div>
+
+    <a href="https://wa.me/5511300000000" target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform duration-300" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl" aria-hidden="true"></i>
+        <span class="absolute top-0 right-0 w-4 h-4 bg-brand-accent rounded-full border-2 border-white animate-pulse" aria-hidden="true"></span>
+    </a>
+
+<main class="flex-grow pt-24 pb-20 grid-bg">
+        
+        <!-- About Hero Section -->
+        <section id="about-hero" class="max-w-7xl mx-auto px-6 lg:px-12 mb-16">
+            <div class="hero-pattern rounded-[2rem] overflow-hidden min-h-[500px] flex flex-col lg:flex-row items-center justify-between p-12 soft-shadow relative">
+                <div class="lg:w-1/2 z-10 text-left">
+                    <span class="px-4 py-1.5 bg-brand-accent/20 text-brand-accent text-sm font-bold rounded-full border border-brand-accent/30 uppercase tracking-wider backdrop-blur-sm inline-block mb-6">
+                        Nossa História
+                    </span>
+                    <h1 class="text-4xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+                        Construindo o futuro com solidez e inovação.
+                    </h1>
+                    <p class="text-lg text-brand-gray-300 mb-8 max-w-xl">
+                        O Grupo Conpav une expertise em concreto, energia solar e mineração para entregar soluções integradas, sustentáveis e de alta performance para o mercado B2B e residencial.
+                    </p>
+                    <div class="flex gap-4">
+                        <button class="px-6 py-3 bg-brand-accent text-white font-bold rounded-xl hover:bg-brand-accent/90 transition-colors shadow-lg shadow-brand-accent/20">
+                            Conheça as Empresas
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 mt-12 lg:mt-0 relative z-10 h-64 lg:h-96 w-full rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl">
+                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/35595a80b1-27d2d84dff8a6df24a9e.png" alt="Aerial view of a modern industrial complex integrating concrete plant, solar panels, and mining operations at sunset, high quality, corporate photography" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Values -->
+        <section id="mission-values" class="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="dashboard-card flex flex-col items-start border-t-4 border-t-brand-navy">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-navy/10 flex items-center justify-center text-brand-navy text-2xl mb-6">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3">Missão</h3>
+                    <p class="text-brand-gray-600 text-sm leading-relaxed">
+                        Fornecer materiais e soluções de infraestrutura com excelência, impulsionando o desenvolvimento sustentável e garantindo a satisfação de nossos parceiros e clientes em cada obra.
+                    </p>
+                </div>
+                
+                <div class="dashboard-card flex flex-col items-start border-t-4 border-t-brand-accent">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-accent/10 flex items-center justify-center text-brand-accent text-2xl mb-6">
+                        <i class="fa-regular fa-eye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3">Visão</h3>
+                    <p class="text-brand-gray-600 text-sm leading-relaxed">
+                        Ser referência nacional em integração de soluções construtivas, energéticas e minerais, reconhecida pela inovação tecnológica e compromisso inabalável com a qualidade.
+                    </p>
+                </div>
+                
+                <div class="dashboard-card flex flex-col items-start border-t-4 border-t-brand-gray-800">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-gray-100 flex items-center justify-center text-brand-navy text-2xl mb-6">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3">Valores</h3>
+                    <ul class="text-brand-gray-600 text-sm space-y-2 w-full">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent"></i> Solidez e Confiabilidade</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent"></i> Inovação Sustentável</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent"></i> Segurança em Primeiro Lugar</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent"></i> Excelência Operacional</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Portfolio Cards -->
+        <section id="companies-portfolio" class="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold text-brand-navy mb-4">Nossas Empresas</h2>
+                <p class="text-brand-gray-600 max-w-2xl mx-auto">Especialistas em seus segmentos, unidas pela força do Grupo Conpav.</p>
+            </div>
+            
+            <div class="space-y-8">
+                <!-- CONPAVMIX -->
+                <div class="dashboard-card p-0 overflow-hidden flex flex-col lg:flex-row border-l-8 border-l-brand-navy">
+                    <div class="lg:w-1/3 h-64 lg:h-auto relative">
+                        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="Modern concrete mixer truck pouring concrete at a large construction site, professional B2B photography" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/80 to-transparent flex items-end p-6">
+                            <h3 class="text-2xl font-bold text-white">CONPAVMIX</h3>
+                        </div>
+                    </div>
+                    <div class="lg:w-2/3 p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 bg-brand-navy/10 text-brand-navy text-xs font-bold rounded-full">Concreto Usinado</span>
+                                <a href="#" class="text-brand-accent text-sm font-bold hover:underline">Ver Calculadora <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                            </div>
+                            <p class="text-brand-gray-600 mb-6">
+                                Especialista em concreto usinado de alta resistência para obras residenciais, comerciais e industriais. Garantimos o traço exato (FCK) para a sua necessidade, com frota própria e pontualidade na entrega.
+                            </p>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                                <div class="bg-brand-gray-50 p-3 rounded-lg text-center border border-brand-gray-200">
+                                    <i class="fa-solid fa-truck-fast text-brand-navy mb-2 text-xl"></i>
+                                    <p class="text-xs font-bold text-brand-navy">Frota Própria</p>
+                                </div>
+                                <div class="bg-brand-gray-50 p-3 rounded-lg text-center border border-brand-gray-200">
+                                    <i class="fa-solid fa-flask text-brand-navy mb-2 text-xl"></i>
+                                    <p class="text-xs font-bold text-brand-navy">Laboratório</p>
+                                </div>
+                                <div class="bg-brand-gray-50 p-3 rounded-lg text-center border border-brand-gray-200">
+                                    <i class="fa-solid fa-building text-brand-navy mb-2 text-xl"></i>
+                                    <p class="text-xs font-bold text-brand-navy">Grandes Obras</p>
+                                </div>
+                                <div class="bg-brand-gray-50 p-3 rounded-lg text-center border border-brand-gray-200">
+                                    <i class="fa-solid fa-certificate text-brand-navy mb-2 text-xl"></i>
+                                    <p class="text-xs font-bold text-brand-navy">Certificação</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNISOLAR -->
+                <div class="dashboard-card p-0 overflow-hidden flex flex-col lg:flex-row-reverse border-l-8 border-l-brand-accent">
+                    <div class="lg:w-1/3 h-64 lg:h-auto relative">
+                        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="Large array of solar panels on an industrial roof with bright sun, clean energy concept" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-accent/80 to-transparent flex items-end p-6">
+                            <h3 class="text-2xl font-bold text-white">UNISOLAR</h3>
+                        </div>
+                    </div>
+                    <div class="lg:w-2/3 p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 bg-brand-accent/10 text-brand-accent text-xs font-bold rounded-full">Energia Solar</span>
+                                <a href="#" class="text-brand-navy text-sm font-bold hover:underline">Ver Calculadora <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                            </div>
+                            <p class="text-brand-gray-600 mb-6">
+                                Projetos fotovoltaicos completos para indústrias, comércios e residências. Reduza sua conta de energia com tecnologia de ponta, instalação homologada e financiamento facilitado.
+                            </p>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                                <div class="bg-brand-gray-50 p-3 rounded-lg text-center border border-brand-gray-200">
+                                    <i class="fa-solid fa-solar-panel text-brand-accent mb-2 text-xl"></i>
+                                    <p class="text-xs font-bold text-brand-navy">Projetos Custom</p>
+                                </div>
+                                <div class="bg-brand-gray-50 p-3 rounded-lg text-center border border-brand-gray-200">
+                                    <i class="fa-solid fa-file-signature text-brand-accent mb-2 text-xl"></i>
+                                    <p class="text-xs font-bold text-brand-navy">Homologação</p>
+                                </div>
+                                <div class="bg-brand-gray-50 p-3 rounded-lg text-center border border-brand-gray-200">
+                                    <i class="fa-solid fa-leaf text-brand-accent mb-2 text-xl"></i>
+                                    <p class="text-xs font-bold text-brand-navy">Sustentável</p>
+                                </div>
+                                <div class="bg-brand-gray-50 p-3 rounded-lg text-center border border-brand-gray-200">
+                                    <i class="fa-solid fa-wallet text-brand-accent mb-2 text-xl"></i>
+                                    <p class="text-xs font-bold text-brand-navy">Economia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CPV MINERAÇÃO -->
+                <div class="dashboard-card p-0 overflow-hidden flex flex-col lg:flex-row border-l-8 border-l-brand-gray-700">
+                    <div class="lg:w-1/3 h-64 lg:h-auto relative">
+                        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="Heavy mining equipment operating in a quarry extracting aggregates, professional industrial photography" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-gray-900/80 to-transparent flex items-end p-6">
+                            <h3 class="text-2xl font-bold text-white">CPV MINERAÇÃO</h3>
+                        </div>
+                    </div>
+                    <div class="lg:w-2/3 p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 bg-brand-gray-200 text-brand-gray-800 text-xs font-bold rounded-full">Agregados</span>
+                                <a href="#" class="text-brand-accent text-sm font-bold hover:underline">Ver Cotador <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                            </div>
+                            <p class="text-brand-gray-600 mb-6">
+                                Extração e fornecimento de agregados minerais (brita, areia, pedrisco) com rigoroso controle granulométrico. Base fundamental para a qualidade do concreto e pavimentação da região.
+                            </p>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                                <div class="bg-brand-gray-50 p-3 rounded-lg text-center border border-brand-gray-200">
+                                    <i class="fa-solid fa-mountain text-brand-gray-700 mb-2 text-xl"></i>
+                                    <p class="text-xs font-bold text-brand-navy">Extração Própria</p>
+                                </div>
+                                <div class="bg-brand-gray-50 p-3 rounded-lg text-center border border-brand-gray-200">
+                                    <i class="fa-solid fa-scale-balanced text-brand-gray-700 mb-2 text-xl"></i>
+                                    <p class="text-xs font-bold text-brand-navy">Controle Qualidade</p>
+                                </div>
+                                <div class="bg-brand-gray-50 p-3 rounded-lg text-center border border-brand-gray-200">
+                                    <i class="fa-solid fa-truck-ramp-box text-brand-gray-700 mb-2 text-xl"></i>
+                                    <p class="text-xs font-bold text-brand-navy">Logística</p>
+                                </div>
+                                <div class="bg-brand-gray-50 p-3 rounded-lg text-center border border-brand-gray-200">
+                                    <i class="fa-solid fa-tree text-brand-gray-700 mb-2 text-xl"></i>
+                                    <p class="text-xs font-bold text-brand-navy">Recuperação</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline / History -->
+        <section id="timeline" class="max-w-5xl mx-auto px-6 lg:px-12 mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-brand-navy mb-4">Nossa Trajetória</h2>
+                <p class="text-brand-gray-600">Marcos importantes na construção do Grupo Conpav.</p>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full timeline-line"></div>
+                
+                <!-- Timeline Item 1 -->
+                <div class="relative flex items-center justify-between mb-12 w-full">
+                    <div class="w-5/12 text-right pr-8">
+                        <h3 class="text-xl font-bold text-brand-navy">Fundação CPV Mineração</h3>
+                        <p class="text-brand-gray-600 text-sm mt-2">Início das operações de extração de agregados, estabelecendo as bases de qualidade do grupo.</p>
+                    </div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-brand-navy border-4 border-white flex items-center justify-center text-white font-bold shadow-md z-10">
+                        <span class="text-xs">2005</span>
+                    </div>
+                    <div class="w-5/12 pl-8"></div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="relative flex items-center justify-between mb-12 w-full">
+                    <div class="w-5/12 pr-8"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-brand-accent border-4 border-white flex items-center justify-center text-white font-bold shadow-md z-10">
+                        <span class="text-xs">2010</span>
+                    </div>
+                    <div class="w-5/12 text-left pl-8">
+                        <h3 class="text-xl font-bold text-brand-navy">Nascimento CONPAVMIX</h3>
+                        <p class="text-brand-gray-600 text-sm mt-2">Verticalização dos negócios com a inauguração da primeira usina de concreto, utilizando agregados próprios.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="relative flex items-center justify-between mb-12 w-full">
+                    <div class="w-5/12 text-right pr-8">
+                        <h3 class="text-xl font-bold text-brand-navy">Expansão de Frota</h3>
+                        <p class="text-brand-gray-600 text-sm mt-2">Aquisição de 20 novos caminhões betoneira e bombas lança, ampliando a capacidade de atendimento.</p>
+                    </div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-brand-navy border-4 border-white flex items-center justify-center text-white font-bold shadow-md z-10">
+                        <span class="text-xs">2015</span>
+                    </div>
+                    <div class="w-5/12 pl-8"></div>
+                </div>
+                
+                <!-- Timeline Item 4 -->
+                <div class="relative flex items-center justify-between w-full">
+                    <div class="w-5/12 pr-8"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-brand-accent border-4 border-white flex items-center justify-center text-white font-bold shadow-md z-10">
+                        <span class="text-xs">2020</span>
+                    </div>
+                    <div class="w-5/12 text-left pl-8">
+                        <h3 class="text-xl font-bold text-brand-navy">Criação UNISOLAR</h3>
+                        <p class="text-brand-gray-600 text-sm mt-2">Entrada no mercado de energia renovável, consolidando o Grupo Conpav como provedor de soluções completas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership & Team -->
+        <section id="leadership" class="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
+            <h2 class="text-2xl font-bold text-brand-navy mb-8">Nossa Liderança</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Leader 1 -->
+                <div class="ref-card-style p-6 text-center">
+                    <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-brand-gray-100 mb-4">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" alt="CEO" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-brand-navy">Roberto Almeida</h4>
+                    <p class="text-brand-accent text-xs font-bold mb-2">CEO - Grupo Conpav</p>
+                    <p class="text-brand-gray-500 text-xs">Engenheiro Civil com 30 anos de experiência no setor de infraestrutura.</p>
+                </div>
+                
+                <!-- Leader 2 -->
+                <div class="ref-card-style p-6 text-center">
+                    <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-brand-gray-100 mb-4">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="Diretora" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-brand-navy">Helena Costa</h4>
+                    <p class="text-brand-navy text-xs font-bold mb-2">Diretora - CONPAVMIX</p>
+                    <p class="text-brand-gray-500 text-xs">Especialista em tecnologia do concreto e gestão de operações logísticas.</p>
+                </div>
+
+                <!-- Leader 3 -->
+                <div class="ref-card-style p-6 text-center">
+                    <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-brand-gray-100 mb-4">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-8.jpg" alt="Diretor" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-brand-navy">Carlos Mendes</h4>
+                    <p class="text-brand-gray-700 text-xs font-bold mb-2">Diretor - CPV Mineração</p>
+                    <p class="text-brand-gray-500 text-xs">Engenheiro de Minas focado em extração sustentável e recuperação ambiental.</p>
+                </div>
+
+                <!-- Leader 4 -->
+                <div class="ref-card-style p-6 text-center">
+                    <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-brand-gray-100 mb-4">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-6.jpg" alt="Diretora" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-brand-navy">Juliana Silva</h4>
+                    <p class="text-brand-accent text-xs font-bold mb-2">Diretora - UNISOLAR</p>
+                    <p class="text-brand-gray-500 text-xs">Especialista em sistemas fotovoltaicos e transição energética corporativa.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safety & Compliance -->
+        <section id="safety-compliance" class="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
+            <div class="bg-brand-navy rounded-[2rem] p-8 lg:p-12 text-white relative overflow-hidden soft-shadow">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6">Segurança e Conformidade</h2>
+                        <p class="text-brand-gray-300 mb-6">
+                            No Grupo Conpav, a segurança operacional e o respeito ao meio ambiente são inegociáveis. Mantemos rigorosos protocolos de SST (Saúde e Segurança do Trabalho) e compliance ambiental em todas as nossas unidades de negócio.
+                        </p>
+                        <ul class="space-y-4 text-brand-gray-200">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-shield-halved text-brand-accent mt-1"></i>
+                                <span>Treinamento contínuo de equipes operacionais (NRs 11, 12, 18, 35).</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-leaf text-brand-accent mt-1"></i>
+                                <span>Plano de Recuperação de Áreas Degradadas (PRAD) na mineração.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-recycle text-brand-accent mt-1"></i>
+                                <span>Reaproveitamento de água e resíduos nas usinas de concreto.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- Trust Badges -->
+                        <div class="bg-white/10 p-6 rounded-xl border border-white/20 text-center backdrop-blur-sm">
+                            <i class="fa-solid fa-award text-4xl text-brand-accent mb-3"></i>
+                            <h4 class="font-bold text-sm">ISO 9001</h4>
+                            <p class="text-xs text-brand-gray-400 mt-1">Gestão da Qualidade</p>
+                        </div>
+                        <div class="bg-white/10 p-6 rounded-xl border border-white/20 text-center backdrop-blur-sm">
+                            <i class="fa-solid fa-tree-city text-4xl text-[#10B981] mb-3"></i>
+                            <h4 class="font-bold text-sm">ISO 14001</h4>
+                            <p class="text-xs text-brand-gray-400 mt-1">Gestão Ambiental</p>
+                        </div>
+                        <div class="bg-white/10 p-6 rounded-xl border border-white/20 text-center backdrop-blur-sm">
+                            <i class="fa-solid fa-helmet-safety text-4xl text-brand-accent mb-3"></i>
+                            <h4 class="font-bold text-sm">ISO 45001</h4>
+                            <p class="text-xs text-brand-gray-400 mt-1">Saúde e Segurança</p>
+                        </div>
+                        <div class="bg-white/10 p-6 rounded-xl border border-white/20 text-center backdrop-blur-sm">
+                            <i class="fa-solid fa-sun text-4xl text-brand-accent mb-3"></i>
+                            <h4 class="font-bold text-sm">ANEEL</h4>
+                            <p class="text-xs text-brand-gray-400 mt-1">Projetos Homologados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer CTA -->
+        <section id="footer-cta" class="max-w-7xl mx-auto px-6 lg:px-12 mb-12">
+            <div class="dashboard-card bg-white text-center border-t-4 border-t-brand-accent">
+                <h2 class="text-3xl font-extrabold text-brand-navy mb-4">Construa com o Grupo Conpav</h2>
+                <p class="text-brand-gray-600 text-lg mb-8 max-w-2xl mx-auto">
+                    Acesse nosso Quote Hub para simular quantidades ou fale diretamente com nossos especialistas via WhatsApp para um orçamento personalizado.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button class="px-8 py-4 bg-brand-navy text-white font-bold rounded-xl hover:bg-brand-navy/90 transition-colors shadow-lg shadow-brand-navy/20 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-calculator"></i> Quote Hub (Calculadoras)
+                    </button>
+                    <button class="px-8 py-4 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#25D366]/90 transition-colors shadow-lg shadow-[#25D366]/20 flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> Falar no WhatsApp
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <script src="js/main.js" defer></script>
+</body>
+</html>

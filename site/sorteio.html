@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Conpav — Sorteios</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.FontAwesomeConfig = { autoReplaceSvg: "nest" };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+</head>
+<body class="text-brand-navy font-sans flex flex-col m-0 p-0">
+
+    <header id="header" class="fixed top-0 w-full z-50 glass-card border-b border-brand-gray-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-navy text-white flex items-center justify-center font-bold text-lg shadow-lg shadow-brand-navy/20">GC</div>
+                <span class="font-bold text-xl tracking-tight text-brand-navy">Grupo Conpav</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8" aria-label="Principal">
+                <a href="index.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Início</a>
+                <a href="galeria.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Galeria</a>
+                <a href="blog.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Blog</a>
+                <a href="sobre.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Sobre</a>
+                <a href="contato.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Contato</a>
+                <a href="orcamento.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Orçamento</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="orcamento.html" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-navy text-white text-sm font-semibold hover:bg-brand-navy/90 transition-all shadow-md shadow-brand-navy/10">
+                    <i class="fa-solid fa-calculator" aria-hidden="true"></i>
+                    Solicitar orçamento
+                </a>
+                <button type="button" id="nav-toggle" class="md:hidden text-brand-navy p-2 rounded-lg border border-brand-gray-200" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-nav" class="hidden fixed inset-x-0 top-20 z-40 md:hidden glass-card border-b border-brand-gray-200 shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto" role="dialog" aria-label="Menu">
+        <nav class="flex flex-col px-6 py-4">
+            <a href="index.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Início</a>
+            <a href="galeria.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Galeria</a>
+            <a href="blog.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Blog</a>
+            <a href="sobre.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Sobre</a>
+            <a href="contato.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Contato</a>
+            <a href="orcamento.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Orçamento</a>
+
+            <p class="text-xs font-bold text-brand-gray-400 uppercase tracking-wider mt-4 mb-2">Ferramentas</p>
+            <a href="calculadora-concreto.html" class="py-2 px-2 text-brand-gray-600">Calculadora de concreto</a>
+            <a href="calculadora-solar.html" class="py-2 px-2 text-brand-gray-600">Calculadora solar (UNISOLAR)</a>
+            <a href="sorteio.html" class="py-2 px-2 text-brand-gray-600">Sorteios</a>
+
+        </nav>
+    </div>
+
+    <a href="https://wa.me/5511300000000" target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform duration-300" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl" aria-hidden="true"></i>
+        <span class="absolute top-0 right-0 w-4 h-4 bg-brand-accent rounded-full border-2 border-white animate-pulse" aria-hidden="true"></span>
+    </a>
+
+<main class="flex-grow pt-24 pb-20 grid-bg">
+        
+        <!-- Breadcrumb & Back -->
+        <section class="max-w-7xl mx-auto px-6 lg:px-12 py-6">
+            <a href="#" class="inline-flex items-center text-sm font-medium text-brand-gray-500 hover:text-brand-navy transition-colors">
+                <i class="fa-solid fa-arrow-left mr-2"></i> Voltar para Blog & Notícias
+            </a>
+        </section>
+
+        <!-- Winner Announcement Hero -->
+        <section id="winner-hero" class="max-w-7xl mx-auto px-6 lg:px-12 mb-16">
+            <div class="hero-pattern rounded-[2rem] overflow-hidden min-h-[400px] flex flex-col items-center justify-center text-center p-12 soft-shadow relative">
+                <div class="absolute top-8 left-8">
+                    <span class="px-4 py-1.5 bg-brand-accent/20 text-brand-accent text-sm font-bold rounded-full border border-brand-accent/30 uppercase tracking-wider backdrop-blur-sm">
+                        Resultado Oficial
+                    </span>
+                </div>
+                
+                <h1 class="text-5xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 mt-8">
+                    Ganhadores do Sorteio
+                </h1>
+                <p class="text-xl text-brand-gray-300 max-w-2xl mx-auto mb-8">
+                    Kit de Ferramentas Profissional Makita - Edição Dia do Construtor
+                </p>
+                
+                <div class="flex items-center gap-6 text-brand-gray-400 text-sm font-medium bg-white/5 px-6 py-3 rounded-full backdrop-blur-md border border-white/10">
+                    <span><i class="fa-regular fa-calendar mr-2"></i> Realizado em: 30 Set 2023</span>
+                    <span>•</span>
+                    <span><i class="fa-solid fa-ticket mr-2"></i> 1.245 Participantes</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro Text -->
+        <section id="intro-text" class="max-w-4xl mx-auto px-6 lg:px-12 mb-20 text-center">
+            <h2 class="text-3xl font-bold text-brand-navy mb-6 leading-tight">
+                Agradecemos a todos os parceiros e clientes que participaram desta edição especial.
+            </h2>
+            <p class="text-lg text-brand-gray-600 leading-relaxed">
+                Foi um sucesso absoluto! Foram mais de mil participações validadas em nossa campanha. Abaixo, você confere a lista oficial dos felizardos que levarão para casa os kits profissionais de alta performance.
+            </p>
+        </section>
+
+        <!-- Winner Results Grid -->
+        <section id="winner-results" class="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
+            <div class="flex items-center justify-between mb-8 border-b border-brand-gray-200 pb-4">
+                <h3 class="text-2xl font-bold text-brand-navy">Lista de Vencedores</h3>
+                <span class="text-brand-gray-500 text-sm">Sorteio Auditado via Sorteador.com.br</span>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Winner 1 -->
+                <div class="ref-card-style p-8 flex flex-col items-center text-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-brand-accent/10 rounded-bl-full flex items-start justify-end p-3">
+                        <i class="fa-solid fa-trophy text-brand-accent text-xl"></i>
+                    </div>
+                    <div class="w-24 h-24 rounded-full bg-brand-gray-100 border-4 border-white shadow-md mb-6 overflow-hidden">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg" alt="Winner Profile" class="w-full h-full object-cover">
+                    </div>
+                    <span class="px-3 py-1 bg-brand-navy text-white text-xs font-bold rounded-full mb-4">1º Prêmio</span>
+                    <h4 class="text-xl font-bold text-brand-navy mb-1">Carlos Eduardo Silva</h4>
+                    <p class="text-brand-gray-500 text-sm mb-4">Construtora Base Forte (SP)</p>
+                    <div class="w-full pt-4 border-t border-brand-gray-100">
+                        <p class="text-brand-navy font-semibold text-sm">Kit Completo Makita 18V</p>
+                        <p class="text-brand-gray-400 text-xs mt-1">Bilhete: #8492</p>
+                    </div>
+                </div>
+
+                <!-- Winner 2 -->
+                <div class="ref-card-style p-8 flex flex-col items-center text-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-brand-gray-100 rounded-bl-full flex items-start justify-end p-3">
+                        <i class="fa-solid fa-medal text-brand-gray-500 text-xl"></i>
+                    </div>
+                    <div class="w-24 h-24 rounded-full bg-brand-gray-100 border-4 border-white shadow-md mb-6 overflow-hidden">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Winner Profile" class="w-full h-full object-cover">
+                    </div>
+                    <span class="px-3 py-1 bg-brand-gray-200 text-brand-gray-700 text-xs font-bold rounded-full mb-4">2º Prêmio</span>
+                    <h4 class="text-xl font-bold text-brand-navy mb-1">Mariana Costa</h4>
+                    <p class="text-brand-gray-500 text-sm mb-4">Engenharia MC (MG)</p>
+                    <div class="w-full pt-4 border-t border-brand-gray-100">
+                        <p class="text-brand-navy font-semibold text-sm">Parafusadeira Impacto</p>
+                        <p class="text-brand-gray-400 text-xs mt-1">Bilhete: #3105</p>
+                    </div>
+                </div>
+
+                <!-- Winner 3 -->
+                <div class="ref-card-style p-8 flex flex-col items-center text-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-brand-gray-100 rounded-bl-full flex items-start justify-end p-3">
+                        <i class="fa-solid fa-medal text-brand-gray-400 text-xl"></i>
+                    </div>
+                    <div class="w-24 h-24 rounded-full bg-brand-gray-100 border-4 border-white shadow-md mb-6 overflow-hidden">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" alt="Winner Profile" class="w-full h-full object-cover">
+                    </div>
+                    <span class="px-3 py-1 bg-brand-gray-200 text-brand-gray-700 text-xs font-bold rounded-full mb-4">3º Prêmio</span>
+                    <h4 class="text-xl font-bold text-brand-navy mb-1">Roberto Almeida</h4>
+                    <p class="text-brand-gray-500 text-sm mb-4">Autônomo (RJ)</p>
+                    <div class="w-full pt-4 border-t border-brand-gray-100">
+                        <p class="text-brand-navy font-semibold text-sm">Kit Brocas Titânio</p>
+                        <p class="text-brand-gray-400 text-xs mt-1">Bilhete: #1022</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rules & Instagram CTA -->
+        <section id="rules-cta" class="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Rules Recap -->
+                <div class="dashboard-card h-full">
+                    <h3 class="text-xl font-bold text-brand-navy mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-clipboard-list text-brand-accent"></i>
+                        Como resgatar seu prêmio
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-brand-navy text-white flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
+                            <div>
+                                <h4 class="font-bold text-brand-navy text-sm">Contato Direto</h4>
+                                <p class="text-brand-gray-600 text-sm mt-1">Nossa equipe entrará em contato via WhatsApp ou e-mail cadastrado em até 48 horas úteis.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-brand-navy text-white flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
+                            <div>
+                                <h4 class="font-bold text-brand-navy text-sm">Validação de Dados</h4>
+                                <p class="text-brand-gray-600 text-sm mt-1">Será necessário enviar foto de documento oficial com foto para comprovar a identidade.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-brand-navy text-white flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
+                            <div>
+                                <h4 class="font-bold text-brand-navy text-sm">Envio</h4>
+                                <p class="text-brand-gray-600 text-sm mt-1">O prêmio será despachado via transportadora para o endereço confirmado, sem custos para o ganhador.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt-8 p-4 bg-brand-gray-50 rounded-xl border border-brand-gray-200 text-sm text-brand-gray-600">
+                        <i class="fa-solid fa-circle-info text-brand-navy mr-2"></i>
+                        Prazo máximo para resgate: 30 dias após o anúncio oficial.
+                    </div>
+                </div>
+
+                <!-- Instagram CTA Social Card -->
+                <div class="dashboard-card h-full bg-gradient-to-br from-brand-navy to-[#1e3a5f] text-white border-none relative overflow-hidden flex flex-col justify-center">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                    
+                    <div class="relative z-10 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] flex items-center justify-center text-white text-3xl shadow-lg mb-6">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Não ganhou dessa vez?</h3>
+                        <p class="text-brand-gray-300 mb-8 max-w-md">
+                            Siga nosso perfil no Instagram para acompanhar os próximos sorteios, dicas de obras e novidades do Grupo Conpav.
+                        </p>
+                        
+                        <a href="#" class="px-8 py-3 bg-white text-brand-navy font-bold rounded-full hover:bg-brand-gray-100 transition-colors shadow-lg mb-8">
+                            Seguir @GrupoConpav
+                        </a>
+                        
+                        <div class="w-full pt-6 border-t border-white/10">
+                            <p class="text-sm text-brand-gray-400 mb-4">Compartilhe este resultado:</p>
+                            <div class="flex justify-center gap-4">
+                                <button class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#25D366] transition-colors flex items-center justify-center">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </button>
+                                <button class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#0077b5] transition-colors flex items-center justify-center">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </button>
+                                <button class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center">
+                                    <i class="fa-solid fa-link"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Related News -->
+        <section id="related-news" class="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
+            <h3 class="text-2xl font-bold text-brand-navy mb-8">Veja também</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Article Card 1 -->
+                <article class="dashboard-card group cursor-pointer hover:border-brand-navy transition-all p-0 overflow-hidden flex flex-col h-full">
+                    <div class="h-40 overflow-hidden relative">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="Heavy machinery" />
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-brand-navy text-xs font-bold rounded-full shadow-sm flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-gray-700"></span> CPV MINERAÇÃO
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors line-clamp-2">
+                            Novos Equipamentos Aumentam a Produção de Agregados em 30%
+                        </h3>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-brand-gray-100">
+                            <span class="text-brand-gray-500 text-xs font-medium">12 Out 2023</span>
+                            <span class="text-brand-navy text-sm font-bold flex items-center gap-1 group-hover:text-brand-accent transition-colors">
+                                Ler mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article Card 2 -->
+                <article class="dashboard-card group cursor-pointer hover:border-brand-navy transition-all p-0 overflow-hidden flex flex-col h-full">
+                    <div class="h-40 overflow-hidden relative">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/dc5b1cba46-aeb10056847768cbf170.png" alt="Concrete mixer" />
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-brand-navy text-xs font-bold rounded-full shadow-sm flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-navy"></span> CONPAVMIX
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors line-clamp-2">
+                            Guia Prático: Escolhendo o FCK Ideal para sua Obra
+                        </h3>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-brand-gray-100">
+                            <span class="text-brand-gray-500 text-xs font-medium">05 Out 2023</span>
+                            <span class="text-brand-navy text-sm font-bold flex items-center gap-1 group-hover:text-brand-accent transition-colors">
+                                Ler mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article Card 3 -->
+                <article class="dashboard-card group cursor-pointer hover:border-brand-navy transition-all p-0 overflow-hidden flex flex-col h-full">
+                    <div class="h-40 overflow-hidden relative">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="Solar panels" />
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-brand-navy text-xs font-bold rounded-full shadow-sm flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span> UNISOLAR
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors line-clamp-2">
+                            Expansão da Capacidade de Energia Solar em Projetos Comerciais
+                        </h3>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-brand-gray-100">
+                            <span class="text-brand-gray-500 text-xs font-medium">18 Out 2023</span>
+                            <span class="text-brand-navy text-sm font-bold flex items-center gap-1 group-hover:text-brand-accent transition-colors">
+                                Ler mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Footer CTA -->
+        <section id="footer-cta" class="max-w-7xl mx-auto px-6 lg:px-12 mb-12">
+            <div class="bg-brand-navy rounded-[2rem] p-8 lg:p-12 relative overflow-hidden soft-shadow text-center">
+                <div class="absolute right-0 top-0 w-64 h-64 bg-brand-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                <div class="absolute left-0 bottom-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+                
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-extrabold text-white mb-4">Pronto para iniciar sua obra?</h2>
+                    <p class="text-brand-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+                        Solicite um orçamento sem compromisso. Nossa equipe técnica está pronta para oferecer a melhor solução em concreto, energia solar ou agregados.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <button class="px-8 py-4 bg-brand-accent text-white font-bold rounded-xl hover:bg-brand-accent/90 transition-colors shadow-lg shadow-brand-accent/20">
+                            Solicitar Orçamento
+                        </button>
+                        <button class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-colors border border-white/20">
+                            Falar no WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <script src="js/main.js" defer></script>
+</body>
+</html>

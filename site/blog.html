@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Conpav — Blog e notícias</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.FontAwesomeConfig = { autoReplaceSvg: "nest" };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+</head>
+<body class="text-brand-navy font-sans flex flex-col m-0 p-0">
+
+    <header id="header" class="fixed top-0 w-full z-50 glass-card border-b border-brand-gray-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-navy text-white flex items-center justify-center font-bold text-lg shadow-lg shadow-brand-navy/20">GC</div>
+                <span class="font-bold text-xl tracking-tight text-brand-navy">Grupo Conpav</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8" aria-label="Principal">
+                <a href="index.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Início</a>
+                <a href="galeria.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Galeria</a>
+                <a href="blog.html" class="text-sm font-semibold text-brand-accent border-b-2 border-brand-accent pb-1">Blog</a>
+                <a href="sobre.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Sobre</a>
+                <a href="contato.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Contato</a>
+                <a href="orcamento.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Orçamento</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="orcamento.html" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-navy text-white text-sm font-semibold hover:bg-brand-navy/90 transition-all shadow-md shadow-brand-navy/10">
+                    <i class="fa-solid fa-calculator" aria-hidden="true"></i>
+                    Solicitar orçamento
+                </a>
+                <button type="button" id="nav-toggle" class="md:hidden text-brand-navy p-2 rounded-lg border border-brand-gray-200" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-nav" class="hidden fixed inset-x-0 top-20 z-40 md:hidden glass-card border-b border-brand-gray-200 shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto" role="dialog" aria-label="Menu">
+        <nav class="flex flex-col px-6 py-4">
+            <a href="index.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Início</a>
+            <a href="galeria.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Galeria</a>
+            <a href="blog.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Blog</a>
+            <a href="sobre.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Sobre</a>
+            <a href="contato.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Contato</a>
+            <a href="orcamento.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Orçamento</a>
+
+            <p class="text-xs font-bold text-brand-gray-400 uppercase tracking-wider mt-4 mb-2">Ferramentas</p>
+            <a href="calculadora-concreto.html" class="py-2 px-2 text-brand-gray-600">Calculadora de concreto</a>
+            <a href="calculadora-solar.html" class="py-2 px-2 text-brand-gray-600">Calculadora solar (UNISOLAR)</a>
+            <a href="sorteio.html" class="py-2 px-2 text-brand-gray-600">Sorteios</a>
+
+        </nav>
+    </div>
+
+    <a href="https://wa.me/5511300000000" target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform duration-300" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl" aria-hidden="true"></i>
+        <span class="absolute top-0 right-0 w-4 h-4 bg-brand-accent rounded-full border-2 border-white animate-pulse" aria-hidden="true"></span>
+    </a>
+
+<main class="flex-grow pt-24 pb-20 grid-bg">
+        
+        <!-- Header Section -->
+        <section id="blog-header" class="max-w-7xl mx-auto px-6 lg:px-12 py-12">
+            <div class="text-center max-w-3xl mx-auto">
+                <h1 class="text-4xl lg:text-5xl font-extrabold tracking-tight text-brand-navy mb-4">
+                    Blog & Notícias
+                </h1>
+                <p class="text-lg text-brand-gray-600">
+                    Acompanhe as últimas novidades, inovações e sorteios do Grupo Conpav.
+                </p>
+            </div>
+        </section>
+
+        <!-- Featured Article Hero -->
+        <section id="featured-article" class="max-w-7xl mx-auto px-6 lg:px-12 mb-16">
+            <div class="relative rounded-[2rem] overflow-hidden bg-brand-navy h-[500px] lg:h-[600px] soft-shadow group cursor-pointer">
+                <img class="w-full h-full object-cover opacity-80" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="High quality professional photography of a massive modern industrial complex construction site, concrete foundation pouring, sunny day, wide angle" />
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent"></div>
+
+                <div class="absolute bottom-0 left-0 right-0 p-8 lg:p-12">
+                    <div class="max-w-3xl">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-3 py-1 bg-brand-accent text-white text-xs font-bold rounded-full uppercase tracking-wider">Novo</span>
+                            <span class="px-3 py-1 bg-white/20 backdrop-blur-md text-white text-xs font-bold rounded-full border border-white/10 uppercase tracking-wider">CONPAVMIX</span>
+                        </div>
+                        <h2 class="text-3xl lg:text-5xl font-extrabold text-white mb-4 leading-tight group-hover:text-brand-accent transition-colors">
+                            Avanços na Tecnologia de Concreto de Alta Performance para Grandes Obras
+                        </h2>
+                        <p class="text-brand-gray-300 text-lg mb-6 line-clamp-2">
+                            Descubra como nossa nova linha de concreto usinado está revolucionando a durabilidade e a velocidade de execução em complexos industriais e rodovias de alto tráfego.
+                        </p>
+                        <div class="flex items-center gap-4 text-brand-gray-400 text-sm font-medium">
+                            <span><i class="fa-regular fa-calendar mr-2"></i> 24 Out 2023</span>
+                            <span>•</span>
+                            <span><i class="fa-regular fa-clock mr-2"></i> 5 min de leitura</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog & Giveaway Filter Tabs -->
+        <section id="content-filters" class="max-w-7xl mx-auto px-6 lg:px-12 mb-12">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-brand-gray-200 pb-4">
+                
+                <!-- Dual-mode Tab Switcher -->
+                <div class="relative flex gap-8">
+                    <button class="tab-btn active text-lg font-bold pb-4 px-2" onclick="switchBlogTab('news')">Notícias</button>
+                    <button class="tab-btn text-lg font-medium text-brand-gray-500 pb-4 px-2 hover:text-brand-navy transition-colors" onclick="switchBlogTab('giveaways')">Sorteios</button>
+                    <div id="tab-indicator" class="tab-indicator w-[90px]"></div>
+                </div>
+
+                <!-- Category Filters (Tags) -->
+                <div class="flex flex-wrap items-center gap-3" id="category-filters">
+                    <label class="filter-chip cursor-pointer">
+                        <input type="radio" name="category" value="all" class="hidden" checked>
+                        <div class="px-4 py-2 rounded-full border border-brand-gray-200 text-sm font-medium text-brand-gray-600 hover:bg-brand-gray-50 transition-colors">
+                            Todos
+                        </div>
+                    </label>
+                    <label class="filter-chip cursor-pointer">
+                        <input type="radio" name="category" value="conpavmix" class="hidden">
+                        <div class="px-4 py-2 rounded-full border border-brand-gray-200 text-sm font-medium text-brand-gray-600 hover:bg-brand-gray-50 transition-colors flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brand-navy"></span> CONPAVMIX
+                        </div>
+                    </label>
+                    <label class="filter-chip cursor-pointer">
+                        <input type="radio" name="category" value="unisolar" class="hidden">
+                        <div class="px-4 py-2 rounded-full border border-brand-gray-200 text-sm font-medium text-brand-gray-600 hover:bg-brand-gray-50 transition-colors flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brand-accent"></span> UNISOLAR
+                        </div>
+                    </label>
+                    <label class="filter-chip cursor-pointer">
+                        <input type="radio" name="category" value="cpv" class="hidden">
+                        <div class="px-4 py-2 rounded-full border border-brand-gray-200 text-sm font-medium text-brand-gray-600 hover:bg-brand-gray-50 transition-colors flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brand-gray-700"></span> CPV MINERAÇÃO
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Grid (News View) -->
+        <section id="news-grid" class="max-w-7xl mx-auto px-6 lg:px-12 mb-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Article Card 1 -->
+                <article class="dashboard-card group cursor-pointer hover:border-brand-navy transition-all p-0 overflow-hidden flex flex-col h-full">
+                    <div class="h-48 overflow-hidden relative">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="Professional photo of solar panels installed on a modern commercial building roof, sunny day, clear sky" />
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-brand-navy text-xs font-bold rounded-full shadow-sm flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span> UNISOLAR
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-accent transition-colors line-clamp-2">
+                            Expansão da Capacidade de Energia Solar em Projetos Comerciais
+                        </h3>
+                        <p class="text-brand-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
+                            A UNISOLAR anuncia nova parceria estratégica para fornecimento de painéis de alta eficiência para grandes galpões logísticos na região sudeste.
+                        </p>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-brand-gray-100">
+                            <span class="text-brand-gray-500 text-xs font-medium">18 Out 2023</span>
+                            <span class="text-brand-navy text-sm font-bold flex items-center gap-1 group-hover:text-brand-accent transition-colors">
+                                Ler mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article Card 2 -->
+                <article class="dashboard-card group cursor-pointer hover:border-brand-navy transition-all p-0 overflow-hidden flex flex-col h-full">
+                    <div class="h-48 overflow-hidden relative">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="Heavy machinery working at a quarry, mining aggregates, dusty sunny environment, professional industrial photography" />
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-brand-navy text-xs font-bold rounded-full shadow-sm flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-gray-700"></span> CPV MINERAÇÃO
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-accent transition-colors line-clamp-2">
+                            Novos Equipamentos Aumentam a Produção de Agregados em 30%
+                        </h3>
+                        <p class="text-brand-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
+                            Investimentos recentes em maquinário pesado de última geração garantem maior eficiência e qualidade na extração de brita graduada.
+                        </p>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-brand-gray-100">
+                            <span class="text-brand-gray-500 text-xs font-medium">12 Out 2023</span>
+                            <span class="text-brand-navy text-sm font-bold flex items-center gap-1 group-hover:text-brand-accent transition-colors">
+                                Ler mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article Card 3 -->
+                <article class="dashboard-card group cursor-pointer hover:border-brand-navy transition-all p-0 overflow-hidden flex flex-col h-full">
+                    <div class="h-48 overflow-hidden relative">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/dc5b1cba46-aeb10056847768cbf170.png" alt="Concrete mixer truck pouring concrete at a residential construction site, workers in background, bright day" />
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-brand-navy text-xs font-bold rounded-full shadow-sm flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-navy"></span> CONPAVMIX
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-accent transition-colors line-clamp-2">
+                            Guia Prático: Escolhendo o FCK Ideal para sua Obra Residencial
+                        </h3>
+                        <p class="text-brand-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
+                            Entenda as diferenças entre as resistências do concreto e garanta a segurança e economia na fundação da sua casa.
+                        </p>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-brand-gray-100">
+                            <span class="text-brand-gray-500 text-xs font-medium">05 Out 2023</span>
+                            <span class="text-brand-navy text-sm font-bold flex items-center gap-1 group-hover:text-brand-accent transition-colors">
+                                Ler mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button class="px-8 py-3 bg-white border border-brand-gray-200 text-brand-navy font-bold rounded-full hover:bg-brand-gray-50 transition-colors shadow-sm">
+                    Carregar Mais Notícias
+                </button>
+            </div>
+        </section>
+
+        <!-- Giveaways List View (Hidden by default, toggled via JS) -->
+        <section id="giveaways-list" class="max-w-7xl mx-auto px-6 lg:px-12 mb-20 hidden">
+            <div class="space-y-6">
+                
+                <!-- Giveaway Item 1 (Open) -->
+                <div class="dashboard-card p-6 flex flex-col md:flex-row items-start md:items-center gap-6 hover:border-brand-navy transition-colors">
+                    <div class="w-full md:w-48 h-32 rounded-xl overflow-hidden flex-shrink-0 relative">
+                        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="Modern iPhone mockup floating with a gift box icon, bright background, 3d render style" />
+                        <div class="absolute inset-0 bg-brand-navy/10"></div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full border border-green-200 flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span> Aberto
+                            </span>
+                            <span class="text-brand-gray-500 text-xs font-medium">Sorteio em 15 Nov 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-navy mb-2">Sorteio de Fim de Ano: iPhone 15 Pro</h3>
+                        <p class="text-brand-gray-600 text-sm mb-4 md:mb-0">
+                            Participe do nosso sorteio especial de fim de ano para clientes e parceiros. Faça um orçamento e concorra!
+                        </p>
+                    </div>
+                    <div class="flex-shrink-0 w-full md:w-auto">
+                        <button class="w-full md:w-auto px-6 py-3 bg-brand-accent text-white font-bold rounded-lg hover:bg-brand-accent/90 transition-colors shadow-md shadow-brand-accent/20">
+                            Participar Agora
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Giveaway Item 2 (Winners Announced) -->
+                <div class="dashboard-card p-6 flex flex-col md:flex-row items-start md:items-center gap-6 opacity-80">
+                    <div class="w-full md:w-48 h-32 rounded-xl overflow-hidden flex-shrink-0 relative grayscale">
+                        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="Professional tool set box, high quality tools, industrial setting" />
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="px-3 py-1 bg-brand-navy text-white text-xs font-bold rounded-full">
+                                Vencedores Anunciados
+                            </span>
+                            <span class="text-brand-gray-500 text-xs font-medium">Encerrado em 30 Set 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-navy mb-2">Kit de Ferramentas Profissional Makita</h3>
+                        <p class="text-brand-gray-600 text-sm mb-4 md:mb-0">
+                            Sorteio em comemoração ao Dia do Construtor. Confira a lista de ganhadores.
+                        </p>
+                    </div>
+                    <div class="flex-shrink-0 w-full md:w-auto">
+                        <button class="w-full md:w-auto px-6 py-3 bg-white border border-brand-gray-200 text-brand-navy font-bold rounded-lg hover:bg-brand-gray-50 transition-colors">
+                            Ver Ganhadores
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Giveaway Item 3 (Closed) -->
+                <div class="dashboard-card p-6 flex flex-col md:flex-row items-start md:items-center gap-6 opacity-60">
+                    <div class="w-full md:w-48 h-32 rounded-xl overflow-hidden flex-shrink-0 relative grayscale">
+                        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="Solar panel installation kit, technical equipment" />
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="px-3 py-1 bg-brand-gray-100 text-brand-gray-600 text-xs font-bold rounded-full border border-brand-gray-200">
+                                Encerrado
+                            </span>
+                            <span class="text-brand-gray-500 text-xs font-medium">Encerrado em 15 Ago 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-navy mb-2">Consultoria Gratuita + Projeto Solar UNISOLAR</h3>
+                        <p class="text-brand-gray-600 text-sm mb-4 md:mb-0">
+                            Sorteio de um projeto executivo completo de energia solar para residências.
+                        </p>
+                    </div>
+                    <div class="flex-shrink-0 w-full md:w-auto">
+                        <button class="w-full md:w-auto px-6 py-3 bg-brand-gray-100 text-brand-gray-400 font-bold rounded-lg cursor-not-allowed">
+                            Sorteio Realizado
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Newsletter & CTA Section -->
+        <section id="newsletter-cta" class="max-w-7xl mx-auto px-6 lg:px-12 mb-12">
+            <div class="bg-brand-navy rounded-[2rem] p-8 lg:p-12 relative overflow-hidden soft-shadow">
+                <!-- Abstract Background Elements -->
+                <div class="absolute right-0 top-0 w-64 h-64 bg-brand-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                <div class="absolute left-0 bottom-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+                
+                <div class="relative z-10 flex flex-col lg:flex-row items-center gap-10">
+                    <div class="lg:w-1/2 text-center lg:text-left">
+                        <h2 class="text-3xl font-extrabold text-white mb-4">Fique por dentro das novidades</h2>
+                        <p class="text-brand-gray-300 text-lg mb-0">
+                            Assine nossa newsletter para receber atualizações do setor, novos projetos e alertas de sorteios exclusivos diretamente no seu e-mail ou WhatsApp.
+                        </p>
+                    </div>
+                    
+                    <div class="lg:w-1/2 w-full">
+                        <form class="flex flex-col sm:flex-row gap-3">
+                            <div class="flex-grow">
+                                <input type="email" placeholder="Seu melhor e-mail" class="w-full bg-white/10 border border-white/20 rounded-xl px-5 py-4 text-white placeholder-brand-gray-400 focus:outline-none focus:border-brand-accent focus:bg-white/20 transition-all">
+                            </div>
+                            <button type="button" class="px-8 py-4 bg-brand-accent text-white font-bold rounded-xl hover:bg-brand-accent/90 transition-colors shadow-lg shadow-brand-accent/20 whitespace-nowrap">
+                                Inscrever-se
+                            </button>
+                        </form>
+                        <div class="mt-4 flex items-center justify-center lg:justify-start gap-2 text-sm text-brand-gray-400">
+                            <i class="fa-brands fa-whatsapp text-[#25D366]"></i>
+                            <span>Também quer receber no WhatsApp? <a href="#" class="text-white font-medium hover:text-brand-accent underline decoration-white/30">Clique aqui</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <script src="js/main.js" defer></script>
+    <script src="js/blog.js" defer></script>
+</body>
+</html>

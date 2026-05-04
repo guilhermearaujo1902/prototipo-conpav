@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Conpav — Central de orçamentos</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.FontAwesomeConfig = { autoReplaceSvg: "nest" };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+</head>
+<body class="text-brand-navy font-sans flex flex-col m-0 p-0">
+
+    <header id="header" class="fixed top-0 w-full z-50 glass-card border-b border-brand-gray-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-navy text-white flex items-center justify-center font-bold text-lg shadow-lg shadow-brand-navy/20">GC</div>
+                <span class="font-bold text-xl tracking-tight text-brand-navy">Grupo Conpav</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8" aria-label="Principal">
+                <a href="index.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Início</a>
+                <a href="galeria.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Galeria</a>
+                <a href="blog.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Blog</a>
+                <a href="sobre.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Sobre</a>
+                <a href="contato.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Contato</a>
+                <a href="orcamento.html" class="text-sm font-semibold text-brand-accent border-b-2 border-brand-accent pb-1">Orçamento</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="orcamento.html" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-navy text-white text-sm font-semibold hover:bg-brand-navy/90 transition-all shadow-md shadow-brand-navy/10">
+                    <i class="fa-solid fa-calculator" aria-hidden="true"></i>
+                    Solicitar orçamento
+                </a>
+                <button type="button" id="nav-toggle" class="md:hidden text-brand-navy p-2 rounded-lg border border-brand-gray-200" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-nav" class="hidden fixed inset-x-0 top-20 z-40 md:hidden glass-card border-b border-brand-gray-200 shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto" role="dialog" aria-label="Menu">
+        <nav class="flex flex-col px-6 py-4">
+            <a href="index.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Início</a>
+            <a href="galeria.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Galeria</a>
+            <a href="blog.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Blog</a>
+            <a href="sobre.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Sobre</a>
+            <a href="contato.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Contato</a>
+            <a href="orcamento.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Orçamento</a>
+
+            <p class="text-xs font-bold text-brand-gray-400 uppercase tracking-wider mt-4 mb-2">Ferramentas</p>
+            <a href="calculadora-concreto.html" class="py-2 px-2 text-brand-gray-600">Calculadora de concreto</a>
+            <a href="calculadora-solar.html" class="py-2 px-2 text-brand-gray-600">Calculadora solar (UNISOLAR)</a>
+            <a href="sorteio.html" class="py-2 px-2 text-brand-gray-600">Sorteios</a>
+
+        </nav>
+    </div>
+
+    <a href="https://wa.me/5511300000000" target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform duration-300" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl" aria-hidden="true"></i>
+        <span class="absolute top-0 right-0 w-4 h-4 bg-brand-accent rounded-full border-2 border-white animate-pulse" aria-hidden="true"></span>
+    </a>
+
+<main class="flex-grow pt-24 pb-20">
+        
+        <!-- Hero Section -->
+        <section id="quote-hero" class="relative py-12 lg:py-20 overflow-hidden">
+            <div class="absolute inset-0 z-0 flex items-center justify-center opacity-30 pointer-events-none">
+                <div class="w-[800px] h-[800px] bg-brand-navy rounded-full blur-[120px] opacity-5"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+                <div class="text-center max-w-3xl mx-auto animate-slide-up">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-navy/5 border border-brand-navy/10 text-brand-navy text-sm font-semibold mb-6">
+                        <i class="fa-solid fa-calculator text-brand-accent"></i>
+                        Central de Orçamentos
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-extrabold tracking-tight text-brand-navy leading-[1.1] mb-6">
+                        Simule e Solicite <br/>Seu Orçamento
+                    </h1>
+                    <p class="text-xl text-brand-gray-600 mb-10 leading-relaxed font-light">
+                        Selecione a solução desejada abaixo, preencha os dados do seu projeto e receba uma estimativa instantânea.
+                    </p>
+                </div>
+
+                <!-- Service Selector -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-12">
+                    <!-- CONPAVMIX Tab -->
+                    <label class="cursor-pointer group">
+                        <input type="radio" name="service_selector" class="peer sr-only" checked onchange="switchTab('conpavmix')">
+                        <div class="h-full bg-white rounded-2xl p-6 border-2 border-transparent peer-checked:border-brand-navy peer-checked:bg-brand-navy/5 peer-checked:shadow-md transition-all flex flex-col items-center text-center hover:border-brand-gray-300">
+                            <div class="w-14 h-14 rounded-xl bg-brand-gray-50 flex items-center justify-center mb-4 group-hover:bg-brand-gray-100 transition-colors peer-checked:bg-white peer-checked:shadow-sm">
+                                <i class="fa-solid fa-truck-monster text-2xl text-brand-gray-400 peer-checked:text-brand-navy"></i>
+                            </div>
+                            <h3 class="font-bold text-brand-gray-900 mb-2">CONPAVMIX</h3>
+                            <p class="text-sm text-brand-gray-500">Concreto Usinado</p>
+                        </div>
+                    </label>
+
+                    <!-- UNISOLAR Tab -->
+                    <label class="cursor-pointer group">
+                        <input type="radio" name="service_selector" class="peer sr-only" onchange="switchTab('unisolar')">
+                        <div class="h-full bg-white rounded-2xl p-6 border-2 border-transparent peer-checked:border-brand-accent peer-checked:bg-brand-accent/5 peer-checked:shadow-md transition-all flex flex-col items-center text-center hover:border-brand-gray-300">
+                            <div class="w-14 h-14 rounded-xl bg-brand-gray-50 flex items-center justify-center mb-4 group-hover:bg-brand-gray-100 transition-colors peer-checked:bg-white peer-checked:shadow-sm">
+                                <i class="fa-solid fa-solar-panel text-2xl text-brand-gray-400 peer-checked:text-brand-accent"></i>
+                            </div>
+                            <h3 class="font-bold text-brand-gray-900 mb-2">UNISOLAR</h3>
+                            <p class="text-sm text-brand-gray-500">Energia Solar</p>
+                        </div>
+                    </label>
+
+                    <!-- CPV MINERAÇÃO Tab -->
+                    <label class="cursor-pointer group">
+                        <input type="radio" name="service_selector" class="peer sr-only" onchange="switchTab('cpv')">
+                        <div class="h-full bg-white rounded-2xl p-6 border-2 border-transparent peer-checked:border-brand-navy peer-checked:bg-brand-navy/5 peer-checked:shadow-md transition-all flex flex-col items-center text-center hover:border-brand-gray-300">
+                            <div class="w-14 h-14 rounded-xl bg-brand-gray-50 flex items-center justify-center mb-4 group-hover:bg-brand-gray-100 transition-colors peer-checked:bg-white peer-checked:shadow-sm">
+                                <i class="fa-solid fa-mountain text-2xl text-brand-gray-400 peer-checked:text-brand-navy"></i>
+                            </div>
+                            <h3 class="font-bold text-brand-gray-900 mb-2">CPV MINERAÇÃO</h3>
+                            <p class="text-sm text-brand-gray-500">Agregados</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculators Content Area -->
+        <section id="calculators-area" class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left Column: Active Calculator -->
+                <div class="lg:col-span-8 space-y-8">
+                    
+                    <!-- CONPAVMIX Calculator Panel -->
+                    <div id="panel-conpavmix" class="bg-white rounded-[24px] shadow-sm border border-brand-gray-200 p-8 animate-fade-in block">
+                        <div class="flex items-center justify-between mb-8 pb-6 border-b border-brand-gray-100">
+                            <div>
+                                <h2 class="text-2xl font-bold text-brand-navy">Calculadora de Concreto</h2>
+                                <p class="text-brand-gray-500 mt-1">Estime o volume e especifique a resistência necessária.</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy">
+                                <i class="fa-solid fa-cube text-xl"></i>
+                            </div>
+                        </div>
+
+                        <!-- Volume Calculation -->
+                        <div class="mb-10">
+                            <h3 class="text-lg font-bold text-brand-gray-900 mb-6 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-brand-navy text-white flex items-center justify-center text-xs">1</span>
+                                Dimensões (Volume)
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div>
+                                    <label class="custom-label">Comprimento (m)</label>
+                                    <input type="number" class="custom-input" placeholder="Ex: 10.5">
+                                </div>
+                                <div>
+                                    <label class="custom-label">Largura (m)</label>
+                                    <input type="number" class="custom-input" placeholder="Ex: 5.0">
+                                </div>
+                                <div>
+                                    <label class="custom-label">Espessura (cm)</label>
+                                    <input type="number" class="custom-input" placeholder="Ex: 15">
+                                </div>
+                            </div>
+                            <div class="mt-4 p-4 bg-brand-gray-50 rounded-xl border border-brand-gray-200 flex items-center justify-between">
+                                <span class="text-brand-gray-600 font-medium">Volume Estimado:</span>
+                                <span class="text-2xl font-bold text-brand-navy">7.88 <span class="text-base text-brand-gray-500">m³</span></span>
+                            </div>
+                        </div>
+
+                        <!-- Specification -->
+                        <div class="mb-10">
+                            <h3 class="text-lg font-bold text-brand-gray-900 mb-6 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-brand-navy text-white flex items-center justify-center text-xs">2</span>
+                                Especificação
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="custom-label">Resistência (Fck)</label>
+                                    <select class="custom-input appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-no-repeat bg-[position:right_1rem_center]">
+                                        <option>20 MPa (Residencial leve)</option>
+                                        <option selected>25 MPa (Estruturas padrão)</option>
+                                        <option>30 MPa (Lajes e vigas)</option>
+                                        <option>35+ MPa (Alta performance)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="custom-label">Aplicação</label>
+                                    <select class="custom-input appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-no-repeat bg-[position:right_1rem_center]">
+                                        <option>Lajes</option>
+                                        <option>Fundações</option>
+                                        <option>Piso Industrial</option>
+                                        <option>Calçadas/Muros</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <label class="custom-label mb-3">Serviços Adicionais</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <label class="flex items-center gap-3 p-4 rounded-xl border border-brand-gray-200 cursor-pointer hover:bg-brand-gray-50 transition-colors">
+                                    <input type="checkbox" class="w-5 h-5 rounded border-brand-gray-300 text-brand-navy focus:ring-brand-navy">
+                                    <span class="text-sm font-medium text-brand-gray-700">Bombeamento</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 rounded-xl border border-brand-gray-200 cursor-pointer hover:bg-brand-gray-50 transition-colors">
+                                    <input type="checkbox" class="w-5 h-5 rounded border-brand-gray-300 text-brand-navy focus:ring-brand-navy">
+                                    <span class="text-sm font-medium text-brand-gray-700">Fibras Sintéticas</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button class="w-full py-4 rounded-xl bg-brand-navy text-white font-bold hover:bg-brand-navy/90 transition-all shadow-md shadow-brand-navy/10 flex items-center justify-center gap-2">
+                            Atualizar Resumo
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- UNISOLAR Calculator Panel (Hidden by default) -->
+                    <div id="panel-unisolar" class="bg-white rounded-[24px] shadow-sm border border-brand-gray-200 p-8 hidden">
+                         <div class="flex items-center justify-between mb-8 pb-6 border-b border-brand-gray-100">
+                            <div>
+                                <h2 class="text-2xl font-bold text-brand-navy">Simulador Solar</h2>
+                                <p class="text-brand-gray-500 mt-1">Descubra o potencial de economia para sua residência ou empresa.</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-brand-accent/10 flex items-center justify-center text-brand-accent">
+                                <i class="fa-solid fa-sun text-xl"></i>
+                            </div>
+                        </div>
+
+                        <div class="mb-10">
+                            <h3 class="text-lg font-bold text-brand-gray-900 mb-6 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center text-xs">1</span>
+                                Consumo Atual
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="custom-label">Valor médio da conta (R$)</label>
+                                    <div class="relative">
+                                        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-brand-gray-400 font-medium">R$</span>
+                                        <input type="number" class="custom-input pl-10" placeholder="Ex: 850,00">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="custom-label">Ou Consumo Médio (kWh)</label>
+                                    <div class="relative">
+                                        <input type="number" class="custom-input pr-16" placeholder="Ex: 900">
+                                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-brand-gray-400 text-sm">kWh/mês</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-10">
+                            <h3 class="text-lg font-bold text-brand-gray-900 mb-6 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center text-xs">2</span>
+                                Local de Instalação
+                            </h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="roof_type" class="radio-card-input sr-only" checked>
+                                    <div class="radio-card-label h-full p-4 rounded-xl border border-brand-gray-200 text-center transition-all">
+                                        <i class="fa-solid fa-house radio-icon text-brand-gray-400 text-xl mb-2"></i>
+                                        <p class="text-sm font-medium text-brand-gray-700">Residencial</p>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="roof_type" class="radio-card-input sr-only">
+                                    <div class="radio-card-label h-full p-4 rounded-xl border border-brand-gray-200 text-center transition-all">
+                                        <i class="fa-solid fa-building radio-icon text-brand-gray-400 text-xl mb-2"></i>
+                                        <p class="text-sm font-medium text-brand-gray-700">Comercial</p>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="roof_type" class="radio-card-input sr-only">
+                                    <div class="radio-card-label h-full p-4 rounded-xl border border-brand-gray-200 text-center transition-all">
+                                        <i class="fa-solid fa-industry radio-icon text-brand-gray-400 text-xl mb-2"></i>
+                                        <p class="text-sm font-medium text-brand-gray-700">Industrial</p>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div>
+                                <label class="custom-label">CEP da Instalação</label>
+                                <input type="text" class="custom-input" placeholder="00000-000">
+                                <p class="text-xs text-brand-gray-500 mt-2"><i class="fa-solid fa-circle-info mr-1"></i>Usado para calcular a irradiação solar da sua região.</p>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full py-4 rounded-xl bg-brand-accent text-white font-bold hover:bg-brand-accent/90 transition-all shadow-md shadow-brand-accent/20 flex items-center justify-center gap-2">
+                            Calcular Economia
+                            <i class="fa-solid fa-bolt"></i>
+                        </button>
+                    </div>
+
+                    <!-- CPV MINERAÇÃO Calculator Panel (Hidden by default) -->
+                    <div id="panel-cpv" class="bg-white rounded-[24px] shadow-sm border border-brand-gray-200 p-8 hidden">
+                        <div class="flex items-center justify-between mb-8 pb-6 border-b border-brand-gray-100">
+                            <div>
+                                <h2 class="text-2xl font-bold text-brand-navy">Cotação de Agregados</h2>
+                                <p class="text-brand-gray-500 mt-1">Selecione o material e a quantidade para sua obra.</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy">
+                                <i class="fa-solid fa-mountain-sun text-xl"></i>
+                            </div>
+                        </div>
+
+                         <div class="mb-10">
+                            <h3 class="text-lg font-bold text-brand-gray-900 mb-6 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-brand-navy text-white flex items-center justify-center text-xs">1</span>
+                                Material
+                            </h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="material_type" class="radio-card-input sr-only" checked>
+                                    <div class="radio-card-label p-4 rounded-xl border border-brand-gray-200 transition-all flex items-center gap-4">
+                                        <div class="w-10 h-10 rounded-lg bg-brand-gray-100 flex items-center justify-center">
+                                            <i class="fa-solid fa-cubes-stacked text-brand-gray-500"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-brand-gray-900">Brita</p>
+                                            <p class="text-xs text-brand-gray-500">Diversas granulometrias</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="material_type" class="radio-card-input sr-only">
+                                    <div class="radio-card-label p-4 rounded-xl border border-brand-gray-200 transition-all flex items-center gap-4">
+                                        <div class="w-10 h-10 rounded-lg bg-brand-gray-100 flex items-center justify-center">
+                                            <i class="fa-solid fa-mound text-brand-gray-500"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-brand-gray-900">Areia</p>
+                                            <p class="text-xs text-brand-gray-500">Fina, média, grossa</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="material_type" class="radio-card-input sr-only">
+                                    <div class="radio-card-label p-4 rounded-xl border border-brand-gray-200 transition-all flex items-center gap-4">
+                                        <div class="w-10 h-10 rounded-lg bg-brand-gray-100 flex items-center justify-center">
+                                            <i class="fa-solid fa-road text-brand-gray-500"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-brand-gray-900">Bica Corrida</p>
+                                            <p class="text-xs text-brand-gray-500">Base e sub-base</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="material_type" class="radio-card-input sr-only">
+                                    <div class="radio-card-label p-4 rounded-xl border border-brand-gray-200 transition-all flex items-center gap-4">
+                                        <div class="w-10 h-10 rounded-lg bg-brand-gray-100 flex items-center justify-center">
+                                            <i class="fa-solid fa-layer-group text-brand-gray-500"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-brand-gray-900">Pó de Pedra</p>
+                                            <p class="text-xs text-brand-gray-500">Acabamentos</p>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-10">
+                            <h3 class="text-lg font-bold text-brand-gray-900 mb-6 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-brand-navy text-white flex items-center justify-center text-xs">2</span>
+                                Quantidade e Logística
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="custom-label">Quantidade (Toneladas)</label>
+                                    <input type="number" class="custom-input" placeholder="Ex: 30">
+                                </div>
+                                <div>
+                                    <label class="custom-label">Modalidade</label>
+                                    <select class="custom-input appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-no-repeat bg-[position:right_1rem_center]">
+                                        <option>Entrega na Obra (FOB)</option>
+                                        <option>Retirada na Pedreira (CIF)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="w-full py-4 rounded-xl bg-brand-navy text-white font-bold hover:bg-brand-navy/90 transition-all shadow-md shadow-brand-navy/10 flex items-center justify-center gap-2">
+                            Atualizar Resumo
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Unified Lead Form & Summary -->
+                <div class="lg:col-span-4">
+                    <div class="bg-brand-navy rounded-[24px] shadow-xl overflow-hidden sticky top-28">
+                        <!-- Summary Header -->
+                        <div class="p-6 bg-brand-navy border-b border-white/10">
+                            <h3 class="text-xl font-bold text-white mb-2">Resumo da Solicitação</h3>
+                            <div class="flex items-center gap-2 text-brand-accent text-sm font-medium">
+                                <span id="summary-badge" class="px-2 py-1 rounded bg-brand-accent/20">CONPAVMIX</span>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Summary Data -->
+                        <div class="p-6 bg-[#112d4a]">
+                            <ul class="space-y-4" id="summary-list">
+                                <li class="flex justify-between items-center text-sm">
+                                    <span class="text-brand-gray-400">Volume Estimado</span>
+                                    <span class="text-white font-semibold">7.88 m³</span>
+                                </li>
+                                <li class="flex justify-between items-center text-sm">
+                                    <span class="text-brand-gray-400">Resistência</span>
+                                    <span class="text-white font-semibold">25 MPa</span>
+                                </li>
+                                <li class="flex justify-between items-center text-sm">
+                                    <span class="text-brand-gray-400">Bombeamento</span>
+                                    <span class="text-white font-semibold">Sim</span>
+                                </li>
+                            </ul>
+                            <p class="text-xs text-brand-gray-400 mt-6 pt-4 border-t border-white/10">
+                                <i class="fa-solid fa-circle-exclamation mr-1"></i>
+                                Os valores gerados são estimativas e não configuram proposta comercial vinculativa.
+                            </p>
+                        </div>
+
+                        <!-- Lead Form -->
+                        <div class="p-6 bg-white">
+                            <h4 class="font-bold text-brand-gray-900 mb-4">Seus Dados</h4>
+                            <form class="space-y-4">
+                                <div>
+                                    <input type="text" class="custom-input text-sm" placeholder="Nome Completo / Empresa">
+                                </div>
+                                <div>
+                                    <input type="tel" class="custom-input text-sm" placeholder="WhatsApp (DDD + Número)">
+                                </div>
+                                <div>
+                                    <input type="text" class="custom-input text-sm" placeholder="Cidade / Estado">
+                                </div>
+                                
+                                <button type="button" class="w-full py-4 mt-4 rounded-xl bg-[#25D366] text-white font-bold hover:bg-[#20bd5a] transition-all shadow-md shadow-[#25D366]/20 flex items-center justify-center gap-2 group">
+                                    <i class="fa-brands fa-whatsapp text-xl group-hover:scale-110 transition-transform"></i>
+                                    Enviar via WhatsApp
+                                </button>
+                                <p class="text-center text-xs text-brand-gray-500 mt-3">
+                                    Você será redirecionado com os dados preenchidos.
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer Contact (Reused from context) -->
+        <footer id="footer" class="bg-brand-gray-900 pt-24 pb-12 border-t border-brand-gray-800 mt-24">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                    
+                    <div class="lg:col-span-1">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-xl bg-white text-brand-navy flex items-center justify-center font-bold text-lg">GC</div>
+                            <span class="font-bold text-xl tracking-tight text-white">Grupo Conpav</span>
+                        </div>
+                        <p class="text-brand-gray-400 text-sm leading-relaxed mb-6">
+                            A fundação para o futuro da infraestrutura, energia e mineração. Soluções sólidas, modernas e acessíveis.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-brand-gray-300 hover:bg-brand-accent hover:text-white transition-all">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-brand-gray-300 hover:bg-brand-accent hover:text-white transition-all">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-brand-gray-300 hover:bg-brand-accent hover:text-white transition-all">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-6">Empresas</h4>
+                        <ul class="space-y-4">
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">CONPAVMIX</a></li>
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">UNISOLAR</a></li>
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">CPV MINERAÇÃO</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-6">Links Rápidos</h4>
+                        <ul class="space-y-4">
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">Sobre o Grupo</a></li>
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">Galeria de Obras</a></li>
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">Blog e Notícias</a></li>
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">Trabalhe Conosco</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-6">Contato</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3 text-brand-gray-400 text-sm">
+                                <i class="fa-solid fa-location-dot mt-1 text-brand-accent"></i>
+                                <span>Av. Industrial, 1000 - Distrito Industrial<br>São Paulo, SP - 00000-000</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-brand-gray-400 text-sm">
+                                <i class="fa-solid fa-phone text-brand-accent"></i>
+                                <span>+55 (11) 3000-0000</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-brand-gray-400 text-sm">
+                                <i class="fa-solid fa-envelope text-brand-accent"></i>
+                                <span>contato@grupoconpav.com.br</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-brand-gray-500 text-sm">© 2024 Grupo Conpav. Todos os direitos reservados.</p>
+                    <div class="flex gap-6 text-sm text-brand-gray-500">
+                        <a href="#" class="hover:text-white transition-colors">Política de Privacidade</a>
+                        <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+    <script src="js/main.js" defer></script>
+    <script src="js/orcamento.js" defer></script>
+</body>
+</html>

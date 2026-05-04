@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Conpav — Início</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.FontAwesomeConfig = { autoReplaceSvg: "nest" };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+</head>
+<body class="text-brand-navy font-sans flex flex-col m-0 p-0">
+
+    <header id="header" class="fixed top-0 w-full z-50 glass-card border-b border-brand-gray-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-navy text-white flex items-center justify-center font-bold text-lg shadow-lg shadow-brand-navy/20">GC</div>
+                <span class="font-bold text-xl tracking-tight text-brand-navy">Grupo Conpav</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8" aria-label="Principal">
+                <a href="index.html" class="text-sm font-semibold text-brand-accent border-b-2 border-brand-accent pb-1">Início</a>
+                <a href="galeria.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Galeria</a>
+                <a href="blog.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Blog</a>
+                <a href="sobre.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Sobre</a>
+                <a href="contato.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Contato</a>
+                <a href="orcamento.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Orçamento</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="orcamento.html" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-navy text-white text-sm font-semibold hover:bg-brand-navy/90 transition-all shadow-md shadow-brand-navy/10">
+                    <i class="fa-solid fa-calculator" aria-hidden="true"></i>
+                    Solicitar orçamento
+                </a>
+                <button type="button" id="nav-toggle" class="md:hidden text-brand-navy p-2 rounded-lg border border-brand-gray-200" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-nav" class="hidden fixed inset-x-0 top-20 z-40 md:hidden glass-card border-b border-brand-gray-200 shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto" role="dialog" aria-label="Menu">
+        <nav class="flex flex-col px-6 py-4">
+            <a href="index.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Início</a>
+            <a href="galeria.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Galeria</a>
+            <a href="blog.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Blog</a>
+            <a href="sobre.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Sobre</a>
+            <a href="contato.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Contato</a>
+            <a href="orcamento.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Orçamento</a>
+
+            <p class="text-xs font-bold text-brand-gray-400 uppercase tracking-wider mt-4 mb-2">Ferramentas</p>
+            <a href="calculadora-concreto.html" class="py-2 px-2 text-brand-gray-600">Calculadora de concreto</a>
+            <a href="calculadora-solar.html" class="py-2 px-2 text-brand-gray-600">Calculadora solar (UNISOLAR)</a>
+            <a href="sorteio.html" class="py-2 px-2 text-brand-gray-600">Sorteios</a>
+
+        </nav>
+    </div>
+
+    <a href="https://wa.me/5511300000000" target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform duration-300" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl" aria-hidden="true"></i>
+        <span class="absolute top-0 right-0 w-4 h-4 bg-brand-accent rounded-full border-2 border-white animate-pulse" aria-hidden="true"></span>
+    </a>
+
+<main class="flex-grow pt-20">
+        
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-[90vh] flex items-center grid-bg overflow-hidden py-20">
+            <div class="absolute inset-0 z-0 flex items-center justify-center opacity-30 pointer-events-none">
+                <div class="w-[800px] h-[800px] bg-brand-navy rounded-full blur-[120px] opacity-10"></div>
+                <div class="w-[600px] h-[600px] bg-brand-accent rounded-full blur-[150px] opacity-5 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="animate-slide-up">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-navy/5 border border-brand-navy/10 text-brand-navy text-sm font-semibold mb-6">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
+                        Infraestrutura, Energia e Mineração
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight text-brand-navy leading-[1.1] mb-6">
+                        A Fundação para o <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-navy to-brand-accent">Futuro</span>
+                    </h1>
+                    <p class="text-xl text-brand-gray-600 mb-10 max-w-lg leading-relaxed font-light">
+                        Soluções integradas em concreto usinado, energia solar e agregados para construção civil. Sólido, moderno e acessível.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="px-8 py-4 rounded-full bg-brand-navy text-white font-bold hover:bg-brand-navy/90 transition-all shadow-xl shadow-brand-navy/20 flex items-center justify-center gap-3">
+                            Solicitar Orçamento
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <button class="px-8 py-4 rounded-full bg-white text-brand-navy font-bold border border-brand-gray-200 hover:border-brand-accent hover:text-brand-accent transition-all flex items-center justify-center gap-3 shadow-sm">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            Falar no WhatsApp
+                        </button>
+                    </div>
+                    
+                    <div class="mt-12 flex items-center gap-6 pt-8 border-t border-brand-gray-200/50">
+                        <div class="flex -space-x-4">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" class="w-12 h-12 rounded-full border-2 border-white object-cover" alt="Client">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" class="w-12 h-12 rounded-full border-2 border-white object-cover" alt="Client">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" class="w-12 h-12 rounded-full border-2 border-white object-cover" alt="Client">
+                            <div class="w-12 h-12 rounded-full border-2 border-white bg-brand-gray-100 flex items-center justify-center text-xs font-bold text-brand-navy">+500</div>
+                        </div>
+                        <div class="text-sm">
+                            <p class="font-bold text-brand-navy">Projetos Entregues</p>
+                            <p class="text-brand-gray-500">No último ano</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-brand-navy/10 to-brand-accent/10 rounded-[40px] blur-2xl"></div>
+                    <div class="relative rounded-[32px] overflow-hidden shadow-2xl shadow-brand-navy/10 border border-white">
+                        <img class="w-full h-[600px] object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/1a254027d1-84edc92107d20c8571c2.png" alt="industrial construction site with concrete pouring, modern solar panels in background, professional high quality photography, bright daylight" />
+                        
+                        <!-- Floating Stats Card -->
+                        <div class="absolute bottom-8 left-8 right-8 glass-card rounded-2xl p-6 flex justify-between items-center">
+                            <div>
+                                <p class="text-sm font-medium text-brand-gray-500 mb-1">Satisfação</p>
+                                <p class="text-2xl font-bold text-brand-navy">98.5%</p>
+                            </div>
+                            <div class="w-px h-10 bg-brand-gray-200"></div>
+                            <div>
+                                <p class="text-sm font-medium text-brand-gray-500 mb-1">Experiência</p>
+                                <p class="text-2xl font-bold text-brand-navy">15+ Anos</p>
+                            </div>
+                            <div class="w-px h-10 bg-brand-gray-200"></div>
+                            <div class="w-12 h-12 rounded-full bg-brand-accent/10 flex items-center justify-center text-brand-accent">
+                                <i class="fa-solid fa-star text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Ecosystem -->
+        <section id="ecosystem" class="py-24 bg-white relative">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-4xl font-extrabold text-brand-navy mb-4">Nosso Ecossistema</h2>
+                    <p class="text-lg text-brand-gray-600">Três empresas trabalhando em sinergia para entregar a solução completa para o seu projeto.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- CONPAVMIX -->
+                    <div class="group bg-brand-gray-50 rounded-[32px] p-8 border border-brand-gray-200 hover:border-brand-navy/20 hover:shadow-xl hover:shadow-brand-navy/5 transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-brand-navy/5 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                        
+                        <div class="w-16 h-16 rounded-2xl bg-white shadow-sm border border-brand-gray-100 flex items-center justify-center mb-8 relative z-10">
+                            <i class="fa-solid fa-truck-monster text-2xl text-brand-navy"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold text-brand-navy mb-4">CONPAVMIX</h3>
+                        <p class="text-brand-gray-600 mb-8 min-h-[80px]">Concreto usinado de alta performance para obras residenciais, comerciais e industriais.</p>
+                        
+                        <a href="#" class="inline-flex items-center gap-2 text-brand-navy font-semibold hover:text-brand-accent transition-colors">
+                            Calculadora de Concreto
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+
+                    <!-- UNISOLAR -->
+                    <div class="group bg-brand-gray-50 rounded-[32px] p-8 border border-brand-gray-200 hover:border-brand-accent/30 hover:shadow-xl hover:shadow-brand-accent/5 transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-brand-accent/10 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                        
+                        <div class="w-16 h-16 rounded-2xl bg-white shadow-sm border border-brand-gray-100 flex items-center justify-center mb-8 relative z-10">
+                            <i class="fa-solid fa-solar-panel text-2xl text-brand-accent"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold text-brand-navy mb-4">UNISOLAR</h3>
+                        <p class="text-brand-gray-600 mb-8 min-h-[80px]">Projetos e instalação de energia solar fotovoltaica para máxima economia e sustentabilidade.</p>
+                        
+                        <a href="#" class="inline-flex items-center gap-2 text-brand-navy font-semibold hover:text-brand-accent transition-colors">
+                            Simulador Solar
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+
+                    <!-- CPV MINERAÇÃO -->
+                    <div class="group bg-brand-gray-50 rounded-[32px] p-8 border border-brand-gray-200 hover:border-brand-navy/20 hover:shadow-xl hover:shadow-brand-navy/5 transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-brand-navy/5 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                        
+                        <div class="w-16 h-16 rounded-2xl bg-white shadow-sm border border-brand-gray-100 flex items-center justify-center mb-8 relative z-10">
+                            <i class="fa-solid fa-mountain text-2xl text-brand-navy"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold text-brand-navy mb-4">CPV MINERAÇÃO</h3>
+                        <p class="text-brand-gray-600 mb-8 min-h-[80px]">Extração e fornecimento de agregados (areia, brita) com rigoroso controle de qualidade.</p>
+                        
+                        <a href="#" class="inline-flex items-center gap-2 text-brand-navy font-semibold hover:text-brand-accent transition-colors">
+                            Cotação de Agregados
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust & Projects Gallery -->
+        <section id="trust-gallery" class="py-24 bg-brand-navy relative overflow-hidden">
+            <div class="absolute inset-0 grid-bg opacity-10"></div>
+            
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+                <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
+                    <div class="max-w-2xl">
+                        <h2 class="text-4xl font-extrabold text-white mb-4">Obras que Constroem o Futuro</h2>
+                        <p class="text-brand-gray-300 text-lg">Nossa expertise comprovada em projetos de alta complexidade em todo o território nacional.</p>
+                    </div>
+                    <button class="px-6 py-3 rounded-full bg-white/10 text-white font-semibold hover:bg-white/20 transition-all border border-white/20 backdrop-blur-md">
+                        Ver Galeria Completa
+                    </button>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+                    <div class="group relative rounded-3xl overflow-hidden aspect-square">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="modern industrial complex construction with concrete structures, high quality architecture photography" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/20 to-transparent opacity-80"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full">
+                            <span class="px-3 py-1 bg-brand-accent text-white text-xs font-bold rounded-full mb-3 inline-block">Industrial</span>
+                            <h3 class="text-xl font-bold text-white mb-1">Complexo Logístico SP</h3>
+                            <p class="text-brand-gray-300 text-sm">15.000 m³ de concreto usinado</p>
+                        </div>
+                    </div>
+                    
+                    <div class="group relative rounded-3xl overflow-hidden aspect-square">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="large scale solar farm installation, drone shot, clean energy project" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/20 to-transparent opacity-80"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full">
+                            <span class="px-3 py-1 bg-brand-accent text-white text-xs font-bold rounded-full mb-3 inline-block">Energia</span>
+                            <h3 class="text-xl font-bold text-white mb-1">Fazenda Solar MG</h3>
+                            <p class="text-brand-gray-300 text-sm">2.5 MWp Instalados</p>
+                        </div>
+                    </div>
+
+                    <div class="group relative rounded-3xl overflow-hidden aspect-square md:hidden lg:block">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="residential high rise building foundation pouring, construction site" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/20 to-transparent opacity-80"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full">
+                            <span class="px-3 py-1 bg-brand-accent text-white text-xs font-bold rounded-full mb-3 inline-block">Residencial</span>
+                            <h3 class="text-xl font-bold text-white mb-1">Residencial Vista</h3>
+                            <p class="text-brand-gray-300 text-sm">Fundação e Estrutura Completa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trust Metrics -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-t border-white/10">
+                    <div class="text-center">
+                        <p class="text-4xl font-extrabold text-brand-accent mb-2">15+</p>
+                        <p class="text-brand-gray-300 text-sm font-medium">Anos de Mercado</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-4xl font-extrabold text-white mb-2">500+</p>
+                        <p class="text-brand-gray-300 text-sm font-medium">Obras Entregues</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-4xl font-extrabold text-white mb-2">1M+</p>
+                        <p class="text-brand-gray-300 text-sm font-medium">m³ de Concreto</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-4xl font-extrabold text-white mb-2">100%</p>
+                        <p class="text-brand-gray-300 text-sm font-medium">Certificação ISO</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Contact -->
+        <footer id="footer" class="bg-brand-gray-900 pt-24 pb-12 border-t border-brand-gray-800">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                    
+                    <div class="lg:col-span-1">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-xl bg-white text-brand-navy flex items-center justify-center font-bold text-lg">GC</div>
+                            <span class="font-bold text-xl tracking-tight text-white">Grupo Conpav</span>
+                        </div>
+                        <p class="text-brand-gray-400 text-sm leading-relaxed mb-6">
+                            A fundação para o futuro da infraestrutura, energia e mineração. Soluções sólidas, modernas e acessíveis.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-brand-gray-300 hover:bg-brand-accent hover:text-white transition-all">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-brand-gray-300 hover:bg-brand-accent hover:text-white transition-all">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-brand-gray-300 hover:bg-brand-accent hover:text-white transition-all">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-6">Empresas</h4>
+                        <ul class="space-y-4">
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">CONPAVMIX</a></li>
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">UNISOLAR</a></li>
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">CPV MINERAÇÃO</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-6">Links Rápidos</h4>
+                        <ul class="space-y-4">
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">Sobre o Grupo</a></li>
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">Galeria de Obras</a></li>
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">Blog e Notícias</a></li>
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">Trabalhe Conosco</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-6">Contato</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3 text-brand-gray-400 text-sm">
+                                <i class="fa-solid fa-location-dot mt-1 text-brand-accent"></i>
+                                <span>Av. Industrial, 1000 - Distrito Industrial<br>São Paulo, SP - 00000-000</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-brand-gray-400 text-sm">
+                                <i class="fa-solid fa-phone text-brand-accent"></i>
+                                <span>+55 (11) 3000-0000</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-brand-gray-400 text-sm">
+                                <i class="fa-solid fa-envelope text-brand-accent"></i>
+                                <span>contato@grupoconpav.com.br</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-brand-gray-500 text-sm">© 2024 Grupo Conpav. Todos os direitos reservados.</p>
+                    <div class="flex gap-6 text-sm text-brand-gray-500">
+                        <a href="#" class="hover:text-white transition-colors">Política de Privacidade</a>
+                        <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+    <script src="js/main.js" defer></script>
+</body>
+</html>

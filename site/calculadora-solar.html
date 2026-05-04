@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Conpav — Calculadora solar UNISOLAR</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.FontAwesomeConfig = { autoReplaceSvg: "nest" };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <script src="https://cdn.plot.ly/plotly-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+</head>
+<body class="text-brand-navy font-sans flex flex-col m-0 p-0">
+
+    <header id="header" class="fixed top-0 w-full z-50 glass-card border-b border-brand-gray-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-navy text-white flex items-center justify-center font-bold text-lg shadow-lg shadow-brand-navy/20">GC</div>
+                <span class="font-bold text-xl tracking-tight text-brand-navy">Grupo Conpav</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8" aria-label="Principal">
+                <a href="index.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Início</a>
+                <a href="galeria.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Galeria</a>
+                <a href="blog.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Blog</a>
+                <a href="sobre.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Sobre</a>
+                <a href="contato.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Contato</a>
+                <a href="orcamento.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Orçamento</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="orcamento.html" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-navy text-white text-sm font-semibold hover:bg-brand-navy/90 transition-all shadow-md shadow-brand-navy/10">
+                    <i class="fa-solid fa-calculator" aria-hidden="true"></i>
+                    Solicitar orçamento
+                </a>
+                <button type="button" id="nav-toggle" class="md:hidden text-brand-navy p-2 rounded-lg border border-brand-gray-200" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-nav" class="hidden fixed inset-x-0 top-20 z-40 md:hidden glass-card border-b border-brand-gray-200 shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto" role="dialog" aria-label="Menu">
+        <nav class="flex flex-col px-6 py-4">
+            <a href="index.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Início</a>
+            <a href="galeria.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Galeria</a>
+            <a href="blog.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Blog</a>
+            <a href="sobre.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Sobre</a>
+            <a href="contato.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Contato</a>
+            <a href="orcamento.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Orçamento</a>
+
+            <p class="text-xs font-bold text-brand-gray-400 uppercase tracking-wider mt-4 mb-2">Ferramentas</p>
+            <a href="calculadora-concreto.html" class="py-2 px-2 text-brand-gray-600">Calculadora de concreto</a>
+            <a href="calculadora-solar.html" class="py-2 px-2 text-brand-gray-600">Calculadora solar (UNISOLAR)</a>
+            <a href="sorteio.html" class="py-2 px-2 text-brand-gray-600">Sorteios</a>
+
+        </nav>
+    </div>
+
+    <a href="https://wa.me/5511300000000" target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform duration-300" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl" aria-hidden="true"></i>
+        <span class="absolute top-0 right-0 w-4 h-4 bg-brand-accent rounded-full border-2 border-white animate-pulse" aria-hidden="true"></span>
+    </a>
+
+<main class="flex-grow pt-24 pb-20 grid-bg">
+        
+        <!-- Calculator Hero Section -->
+        <section id="solar-hero" class="relative py-12 lg:py-16 overflow-hidden border-b border-brand-gray-200 bg-white">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent text-xs font-semibold mb-4">
+                        <i class="fa-solid fa-solar-panel"></i>
+                        UNISOLAR
+                    </div>
+                    <h1 class="text-3xl lg:text-5xl font-extrabold tracking-tight text-brand-navy leading-tight mb-4">
+                        Calculadora de Energia Solar
+                    </h1>
+                    <p class="text-lg text-brand-gray-600 leading-relaxed font-light">
+                        Descubra o potencial de economia da sua residência ou empresa. Estime o tamanho do sistema ideal, geração mensal e tempo de retorno do investimento.
+                    </p>
+                </div>
+                <div class="hidden md:block w-48 h-48 relative">
+                    <div class="absolute inset-0 bg-brand-accent/5 rounded-full blur-2xl"></div>
+                    <i class="fa-solid fa-sun text-8xl text-brand-accent/80 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Calculator Area -->
+        <section id="solar-calculator-app" class="max-w-7xl mx-auto px-6 lg:px-12 mt-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left Column: Input Configuration -->
+                <div class="lg:col-span-8 space-y-8">
+                    
+                    <!-- Step 1: Property Type & Location -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-brand-gray-200 p-8">
+                        <div class="flex items-center justify-between mb-6 pb-4 border-b border-brand-gray-100">
+                            <h2 class="text-xl font-bold text-brand-navy flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-full bg-brand-navy text-white flex items-center justify-center text-sm">1</span>
+                                Dados Básicos
+                            </h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                            <label class="cursor-pointer group">
+                                <input type="radio" name="property_type" class="radio-card-input sr-only" checked>
+                                <div class="radio-card-label h-full p-6 rounded-xl border border-brand-gray-200 text-center transition-all hover:bg-brand-gray-50 flex flex-col items-center">
+                                    <div class="w-16 h-16 rounded-full bg-brand-gray-100 flex items-center justify-center mb-4 group-hover:bg-white transition-colors">
+                                        <i class="fa-solid fa-house radio-icon text-brand-gray-400 text-2xl"></i>
+                                    </div>
+                                    <h3 class="font-bold text-brand-gray-900 mb-1">Residencial</h3>
+                                    <p class="text-xs text-brand-gray-500">Casas e condomínios</p>
+                                </div>
+                            </label>
+                            
+                            <label class="cursor-pointer group">
+                                <input type="radio" name="property_type" class="radio-card-input sr-only">
+                                <div class="radio-card-label h-full p-6 rounded-xl border border-brand-gray-200 text-center transition-all hover:bg-brand-gray-50 flex flex-col items-center">
+                                    <div class="w-16 h-16 rounded-full bg-brand-gray-100 flex items-center justify-center mb-4 group-hover:bg-white transition-colors">
+                                        <i class="fa-solid fa-building radio-icon text-brand-gray-400 text-2xl"></i>
+                                    </div>
+                                    <h3 class="font-bold text-brand-gray-900 mb-1">Empresarial</h3>
+                                    <p class="text-xs text-brand-gray-500">Comércio, indústria e agronegócio</p>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="custom-label">CEP / Cidade</label>
+                                <div class="flex gap-2">
+                                    <input type="text" class="custom-input" placeholder="00000-000">
+                                    <button class="px-4 bg-brand-gray-100 text-brand-gray-600 rounded-lg hover:bg-brand-gray-200 transition-colors font-medium text-sm">Buscar</button>
+                                </div>
+                                <p class="text-xs text-brand-gray-400 mt-2">Para calcular a irradiação solar da região.</p>
+                            </div>
+                            <div>
+                                <label class="custom-label">Concessionária de Energia</label>
+                                <select class="custom-input appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-no-repeat bg-[position:right_1rem_center]">
+                                    <option>Enel SP</option>
+                                    <option>CPFL Paulista</option>
+                                    <option>Elektro</option>
+                                    <option>EDP São Paulo</option>
+                                    <option>Outra</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Consumption Details -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-brand-gray-200 p-8">
+                        <div class="flex items-center justify-between mb-6 pb-4 border-b border-brand-gray-100">
+                            <h2 class="text-xl font-bold text-brand-navy flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-full bg-brand-navy text-white flex items-center justify-center text-sm">2</span>
+                                Consumo de Energia
+                            </h2>
+                            <div class="flex items-center justify-center w-full mb-4">
+                                <label for="toggle-consumption" class="flex items-center cursor-pointer">
+                                    <div class="relative">
+                                        <input type="checkbox" id="toggle-consumption" class="sr-only toggle-checkbox">
+                                        <div class="block bg-brand-gray-200 w-14 h-8 rounded-full toggle-label transition-colors"></div>
+                                        <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition-transform"></div>
+                                    </div>
+                                    <div class="ml-3 text-sm font-medium text-brand-gray-700">Usar kWh em vez de R$</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-8">
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="custom-label mb-0">Valor Médio da Conta de Luz (Mensal)</label>
+                                <span class="text-lg font-bold text-brand-navy">R$ 850,00</span>
+                            </div>
+                            <input type="range" min="100" max="5000" step="50" value="850" class="w-full">
+                            <div class="flex justify-between text-xs text-brand-gray-400 mt-2">
+                                <span>R$ 100</span>
+                                <span>R$ 2.500</span>
+                                <span>R$ 5.000+</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-brand-gray-50 rounded-xl p-4 border border-brand-gray-100 flex items-start gap-4">
+                            <i class="fa-solid fa-lightbulb text-brand-accent text-xl mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-brand-gray-900 mb-1">Dica para precisão</h4>
+                                <p class="text-xs text-brand-gray-600">Para um cálculo mais exato, pegue sua última conta de energia e verifique o consumo médio dos últimos 12 meses em kWh.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Roof Characteristics -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-brand-gray-200 p-8">
+                        <div class="flex items-center justify-between mb-6 pb-4 border-b border-brand-gray-100">
+                            <h2 class="text-xl font-bold text-brand-navy flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-full bg-brand-navy text-white flex items-center justify-center text-sm">3</span>
+                                Características do Telhado
+                            </h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <label class="custom-label">Tipo de Telhado</label>
+                                <select class="custom-input appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-no-repeat bg-[position:right_1rem_center]">
+                                    <option>Cerâmica / Barro</option>
+                                    <option>Fibrocimento</option>
+                                    <option>Metálico (Trapezoidal/Ondulado)</option>
+                                    <option>Laje Plana</option>
+                                    <option>Solo (Estrutura no chão)</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="custom-label">Nível de Sombreamento</label>
+                                <select class="custom-input appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-no-repeat bg-[position:right_1rem_center]">
+                                    <option>Sem Sombra (Ideal)</option>
+                                    <option>Pouca Sombra (Manhã ou Tarde)</option>
+                                    <option>Muita Sombra (Árvores/Prédios próximos)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Results Dashboard (Reference Inspired) -->
+                <div class="lg:col-span-4">
+                    <div class="bg-brand-navy rounded-[24px] shadow-2xl border border-brand-navy/20 overflow-hidden sticky top-28">
+                        
+                        <!-- Header -->
+                        <div class="p-6 border-b border-white/10">
+                            <h3 class="text-sm font-medium text-brand-gray-300 uppercase tracking-widest mb-1">Estimativa do Sistema</h3>
+                            <p class="text-xs text-brand-gray-400">Resultados baseados no consumo informado</p>
+                        </div>
+
+                        <!-- Main KPIs -->
+                        <div class="p-6 grid grid-cols-2 gap-4 border-b border-white/10">
+                            <div class="bg-white/5 rounded-xl p-4 border border-white/5">
+                                <div class="text-xs text-brand-gray-400 mb-1">Potência Sugerida</div>
+                                <div class="text-2xl font-bold text-white">6.4 <span class="text-sm text-brand-gray-400 font-normal">kWp</span></div>
+                            </div>
+                            <div class="bg-white/5 rounded-xl p-4 border border-white/5">
+                                <div class="text-xs text-brand-gray-400 mb-1">Geração Mensal</div>
+                                <div class="text-2xl font-bold text-white">820 <span class="text-sm text-brand-gray-400 font-normal">kWh</span></div>
+                            </div>
+                            <div class="bg-white/5 rounded-xl p-4 border border-white/5">
+                                <div class="text-xs text-brand-gray-400 mb-1">Área Necessária</div>
+                                <div class="text-2xl font-bold text-white">32 <span class="text-sm text-brand-gray-400 font-normal">m²</span></div>
+                            </div>
+                            <div class="bg-white/5 rounded-xl p-4 border border-white/5">
+                                <div class="text-xs text-brand-gray-400 mb-1">Módulos (Placas)</div>
+                                <div class="text-2xl font-bold text-white">12 <span class="text-sm text-brand-gray-400 font-normal">und</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Financial Impact -->
+                        <div class="p-6 border-b border-white/10 bg-gradient-to-b from-transparent to-brand-navy/50">
+                            <h4 class="text-sm font-semibold text-white mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-chart-line text-brand-accent"></i> Impacto Financeiro
+                            </h4>
+                            
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-end">
+                                    <div>
+                                        <div class="text-xs text-brand-gray-400">Economia Anual Estimada</div>
+                                        <div class="text-xl font-bold text-[#10B981]">R$ 9.690,00</div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-xs text-brand-gray-400">Nova Conta Estimada</div>
+                                        <div class="text-lg font-bold text-white">R$ 85,00</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="pt-4 border-t border-white/5">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-sm text-brand-gray-300">Tempo de Retorno (Payback)</span>
+                                        <span class="text-sm font-bold text-brand-accent">3.5 a 4 anos</span>
+                                    </div>
+                                    <div class="w-full bg-white/10 rounded-full h-2">
+                                        <div class="bg-brand-accent h-2 rounded-full" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Environmental Impact -->
+                        <div class="p-6 border-b border-white/10">
+                             <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-[#10B981]/20 flex items-center justify-center border border-[#10B981]/30">
+                                    <i class="fa-solid fa-tree text-[#10B981] text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-bold text-white">120 Árvores salvas</div>
+                                    <div class="text-xs text-brand-gray-400">Em 25 anos de operação do sistema</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA -->
+                        <div class="p-6 bg-white">
+                            <button type="button" class="w-full py-4 rounded-xl bg-brand-accent text-white font-bold hover:bg-brand-accent/90 transition-all shadow-md shadow-brand-accent/20 flex items-center justify-center gap-2 text-lg group mb-3">
+                                Agendar Consultoria
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                            <button type="button" class="w-full py-3 rounded-xl bg-white border border-brand-gray-200 text-brand-gray-700 font-bold hover:bg-brand-gray-50 transition-all flex items-center justify-center gap-2 text-sm group">
+                                <i class="fa-brands fa-whatsapp text-[#25D366] text-lg"></i>
+                                Receber via WhatsApp
+                            </button>
+                            <p class="text-center text-xs text-brand-gray-500 mt-4">
+                                Valores estimados. Projeto final sujeito a vistoria técnica.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Analytics / Dashboard Section (Reference Inspired) -->
+        <section class="max-w-7xl mx-auto px-6 lg:px-12 mt-20 relative z-10">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-brand-navy">Projeção de Geração vs Consumo</h2>
+                <p class="text-brand-gray-600 text-sm mt-1">Análise estimada para os próximos 12 meses baseada na irradiação solar da sua região.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Main Chart Card -->
+                <div class="lg:col-span-2 dash-card p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-semibold text-brand-gray-900">Geração de Energia (kWh)</h3>
+                        <select class="text-sm border-none bg-brand-gray-50 text-brand-gray-600 rounded-md py-1 px-2 focus:ring-0">
+                            <option>Visão Anual</option>
+                            <option>Visão Mensal</option>
+                        </select>
+                    </div>
+                    <div id="generationChart" class="w-full h-[300px]"></div>
+                </div>
+                
+                <!-- Side Stats -->
+                <div class="space-y-6">
+                    <div class="dash-card p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-10 h-10 rounded-full bg-[#10B981]/10 flex items-center justify-center">
+                                <i class="fa-solid fa-bolt text-[#10B981]"></i>
+                            </div>
+                            <span class="text-xs font-semibold text-brand-gray-500 bg-brand-gray-100 px-2 py-1 rounded">MÉDIA</span>
+                        </div>
+                        <div class="text-3xl font-bold text-brand-gray-900 mb-1">820 <span class="text-sm font-normal text-brand-gray-500">kWh/mês</span></div>
+                        <div class="text-sm text-brand-gray-500">Geração média estimada</div>
+                    </div>
+                    
+                    <div class="dash-card p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-accent/10 flex items-center justify-center">
+                                <i class="fa-solid fa-sun text-brand-accent"></i>
+                            </div>
+                            <span class="text-xs font-semibold text-brand-gray-500 bg-brand-gray-100 px-2 py-1 rounded">PICO</span>
+                        </div>
+                        <div class="text-3xl font-bold text-brand-gray-900 mb-1">Dez-Jan</div>
+                        <div class="text-sm text-brand-gray-500">Meses de maior geração</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose UNISOLAR Section -->
+        <section class="max-w-7xl mx-auto px-6 lg:px-12 mt-20 relative z-10">
+            <div class="bg-white rounded-2xl shadow-sm border border-brand-gray-200 p-8 lg:p-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-2xl font-bold text-brand-navy mb-4">Por que escolher a UNISOLAR?</h2>
+                        <p class="text-brand-gray-600 mb-6 leading-relaxed">
+                            A UNISOLAR, parte do Grupo Conpav, oferece soluções completas em energia solar com a solidez e confiança de um grupo com décadas de mercado. Cuidamos de tudo, do projeto à homologação.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center mt-0.5">
+                                    <i class="fa-solid fa-check text-brand-accent text-xs"></i>
+                                </div>
+                                <span class="text-brand-gray-700 font-medium">Equipamentos Tier 1 com 25 anos de garantia de performance</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center mt-0.5">
+                                    <i class="fa-solid fa-check text-brand-accent text-xs"></i>
+                                </div>
+                                <span class="text-brand-gray-700 font-medium">Instalação própria com equipe técnica especializada</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center mt-0.5">
+                                    <i class="fa-solid fa-check text-brand-accent text-xs"></i>
+                                </div>
+                                <span class="text-brand-gray-700 font-medium">Monitoramento online via app do seu sistema</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-brand-gray-50 rounded-xl p-6 text-center border border-brand-gray-100 transition-all hover:shadow-md">
+                            <i class="fa-solid fa-file-signature text-3xl text-brand-navy mb-3"></i>
+                            <h4 class="font-bold text-brand-gray-900">Projeto</h4>
+                            <p class="text-xs text-brand-gray-500 mt-1">Engenharia dedicada</p>
+                        </div>
+                        <div class="bg-brand-gray-50 rounded-xl p-6 text-center border border-brand-gray-100 transition-all hover:shadow-md">
+                            <i class="fa-solid fa-screwdriver-wrench text-3xl text-brand-navy mb-3"></i>
+                            <h4 class="font-bold text-brand-gray-900">Instalação</h4>
+                            <p class="text-xs text-brand-gray-500 mt-1">Padrão rigoroso</p>
+                        </div>
+                        <div class="bg-brand-gray-50 rounded-xl p-6 text-center border border-brand-gray-100 transition-all hover:shadow-md">
+                            <i class="fa-solid fa-clipboard-check text-3xl text-brand-navy mb-3"></i>
+                            <h4 class="font-bold text-brand-gray-900">Homologação</h4>
+                            <p class="text-xs text-brand-gray-500 mt-1">Trâmites com a concessionária</p>
+                        </div>
+                        <div class="bg-brand-gray-50 rounded-xl p-6 text-center border border-brand-gray-100 transition-all hover:shadow-md">
+                            <i class="fa-solid fa-mobile-screen text-3xl text-brand-navy mb-3"></i>
+                            <h4 class="font-bold text-brand-gray-900">Monitoramento</h4>
+                            <p class="text-xs text-brand-gray-500 mt-1">Acompanhamento em tempo real</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Contact (Reused from context) -->
+        <footer id="footer" class="bg-brand-gray-900 pt-24 pb-12 border-t border-brand-gray-800 mt-24">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                    
+                    <div class="lg:col-span-1">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-xl bg-white text-brand-navy flex items-center justify-center font-bold text-lg">GC</div>
+                            <span class="font-bold text-xl tracking-tight text-white">Grupo Conpav</span>
+                        </div>
+                        <p class="text-brand-gray-400 text-sm leading-relaxed mb-6">
+                            A fundação para o futuro da infraestrutura, energia e mineração. Soluções sólidas, modernas e acessíveis.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-brand-gray-300 hover:bg-brand-accent hover:text-white transition-all">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-brand-gray-300 hover:bg-brand-accent hover:text-white transition-all">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-brand-gray-300 hover:bg-brand-accent hover:text-white transition-all">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-6">Empresas</h4>
+                        <ul class="space-y-4">
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">CONPAVMIX</a></li>
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">UNISOLAR</a></li>
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">CPV MINERAÇÃO</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-6">Links Rápidos</h4>
+                        <ul class="space-y-4">
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">Sobre o Grupo</a></li>
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">Galeria de Obras</a></li>
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">Blog e Notícias</a></li>
+                            <li><a href="#" class="text-brand-gray-400 hover:text-brand-accent transition-colors text-sm">Trabalhe Conosco</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-6">Contato</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3 text-brand-gray-400 text-sm">
+                                <i class="fa-solid fa-location-dot mt-1 text-brand-accent"></i>
+                                <span>Av. Industrial, 1000 - Distrito Industrial<br>São Paulo, SP - 00000-000</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-brand-gray-400 text-sm">
+                                <i class="fa-solid fa-phone text-brand-accent"></i>
+                                <span>+55 (11) 3000-0000</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-brand-gray-400 text-sm">
+                                <i class="fa-solid fa-envelope text-brand-accent"></i>
+                                <span>contato@grupoconpav.com.br</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-brand-gray-500 text-sm">© 2024 Grupo Conpav. Todos os direitos reservados.</p>
+                    <div class="flex gap-6 text-sm text-brand-gray-500">
+                        <a href="#" class="hover:text-white transition-colors">Política de Privacidade</a>
+                        <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+    <script src="js/main.js" defer></script>
+    <script src="js/calculadora-solar.js" defer></script>
+    <script src="js/plotly-resize.js" defer></script>
+</body>
+</html>
