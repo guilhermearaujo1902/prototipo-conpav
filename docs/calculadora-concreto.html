@@ -140,6 +140,20 @@
                                 </div>
                             </label>
                         </div>
+
+                        <div id="cc-seg-wrap" class="mt-8 pt-6 border-t border-brand-gray-100">
+                            <h3 class="text-sm font-semibold text-brand-gray-700 uppercase tracking-wider mb-4 text-center">Distribuição por segmento</h3>
+                            <div class="flex justify-center">
+                                <div class="flex flex-col items-center w-full max-w-[180px] mx-auto">
+                                    <div class="relative w-14 sm:w-16 h-44 bg-brand-gray-100 rounded-lg overflow-hidden border border-brand-gray-200">
+                                        <div id="cc-seg-fill" class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-brand-navy to-brand-navy/85 rounded-b-md transition-all duration-300" style="height: 100%;"></div>
+                                    </div>
+                                    <p id="cc-seg-caption" class="mt-3 text-xs font-bold text-brand-navy text-center leading-tight px-1">Laje / Piso</p>
+                                    <p class="text-[10px] text-brand-gray-500 text-center mt-1 leading-snug">Volume do tipo selecionado (barra única)</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                     <!-- Step 2: Dimensions & Details -->
@@ -184,7 +198,7 @@
                                 
                                 <div>
                                     <label class="custom-label">Classe de Resistência (Fck)</label>
-                                    <select class="custom-input appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-no-repeat bg-[position:right_1rem_center]">
+                                    <select id="cc-in-fck" class="custom-input appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-no-repeat bg-[position:right_1rem_center]">
                                         <option>20 MPa (Contrapisos, calçadas)</option>
                                         <option selected>25 MPa (Lajes residenciais, vigas)</option>
                                         <option>30 MPa (Fundações, pilares)</option>

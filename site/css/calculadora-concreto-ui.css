@@ -1,0 +1,46 @@
+/* Calculadora de concreto — cards de rádio e slider */
+
+#calculator-app label.cursor-pointer.group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
+  min-height: 0;
+}
+
+#calculator-app label.cursor-pointer.group .radio-card-label {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+/* Círculo do ícone: centralizado na largura clicável do card */
+#calculator-app .radio-card-label > div:first-child {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#calculator-app .radio-card-label .radio-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Thumb do range (perda): melhor alinhamento vertical na trilha */
+#calculator-app input[type="range"]::-webkit-slider-thumb {
+  margin-top: -7px;
+}
+
+#calculator-app input[type="range"]::-moz-range-thumb {
+  margin-top: -7px;
+}

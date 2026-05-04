@@ -16,6 +16,7 @@ SITE = Path(__file__).resolve().parent
 ROOT = REPO / "docs"
 BASE = REPO / "base-criacao"
 STATIC_JS = SITE / "js"
+CONCRETO_UI_CSS = SITE / "css" / "calculadora-concreto-ui.css"
 
 # WhatsApp: número informado "017 991744642" → internacional 55 + DDD 17 + 991744642
 WHATSAPP_PHONE_E164 = "5517991744642"
@@ -160,12 +161,11 @@ def augment_calculator_html(main_frag: str, src_name: str) -> str:
             '                                        <span id="cc-in-loss-label" class="text-sm font-bold text-brand-navy">5%</span>',
             1,
         )
-        h = h.replace(
-            '<label class="custom-label">Classe de Resistência (Fck)</label>\n'
-            '                                <select class="custom-input',
-            '<label class="custom-label">Classe de Resistência (Fck)</label>\n'
-            '                                <select id="cc-in-fck" class="custom-input',
-            1,
+        h = re.sub(
+            r'(Classe de Resistência \(Fck\)</label>\s*<select)( class="custom-input)',
+            r'\1 id="cc-in-fck"\2',
+            h,
+            count=1,
         )
         h = h.replace(
             '<input type="checkbox" class="w-5 h-5 rounded border-brand-gray-300 text-brand-navy focus:ring-brand-navy" checked>',
@@ -179,6 +179,27 @@ def augment_calculator_html(main_frag: str, src_name: str) -> str:
             '<label class="custom-label">CEP da Obra</label>\n'
             '                                <div class="flex gap-2">\n'
             '                                    <input id="cc-in-cep" type="text" class="custom-input" placeholder="00000-000">',
+            1,
+        )
+        h = h.replace(
+            "                        </div>\n"
+            "                    </div>\n\n"
+            "                    <!-- Step 2: Dimensions & Details -->",
+            "                        </div>\n\n"
+            '                        <div id="cc-seg-wrap" class="mt-8 pt-6 border-t border-brand-gray-100">\n'
+            '                            <h3 class="text-sm font-semibold text-brand-gray-700 uppercase tracking-wider mb-4 text-center">Distribuição por segmento</h3>\n'
+            '                            <div class="flex justify-center">\n'
+            '                                <div class="flex flex-col items-center w-full max-w-[180px] mx-auto">\n'
+            '                                    <div class="relative w-14 sm:w-16 h-44 bg-brand-gray-100 rounded-lg overflow-hidden border border-brand-gray-200">\n'
+            '                                        <div id="cc-seg-fill" class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-brand-navy to-brand-navy/85 rounded-b-md transition-all duration-300" style="height: 100%;"></div>\n'
+            "                                    </div>\n"
+            '                                    <p id="cc-seg-caption" class="mt-3 text-xs font-bold text-brand-navy text-center leading-tight px-1">Laje / Piso</p>\n'
+            '                                    <p class="text-[10px] text-brand-gray-500 text-center mt-1 leading-snug">Volume do tipo selecionado (barra única)</p>\n'
+            "                                </div>\n"
+            "                            </div>\n"
+            "                        </div>\n\n"
+            "                    </div>\n\n"
+            "                    <!-- Step 2: Dimensions & Details -->",
             1,
         )
         return h
@@ -410,7 +431,10 @@ def main() -> None:
     copy_static_js()
     (ROOT / ".nojekyll").write_text("", encoding="utf-8")
 
-    (ROOT / "css" / "main.css").write_text(aggregate_css(), encoding="utf-8")
+    css_bundle = aggregate_css()
+    if CONCRETO_UI_CSS.is_file():
+        css_bundle += "\n\n" + CONCRETO_UI_CSS.read_text(encoding="utf-8")
+    (ROOT / "css" / "main.css").write_text(css_bundle, encoding="utf-8")
     print("wrote", (ROOT / "css" / "main.css").relative_to(REPO))
 
     for src_name, out_name, active, title_ov, plotly, extra_js in PAGES:

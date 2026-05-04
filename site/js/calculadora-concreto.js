@@ -52,6 +52,14 @@
     if (el("cc-out-app")) {
       el("cc-out-app").textContent = APP_NAMES[appIdx] || APP_NAMES[0];
     }
+    var cap = el("cc-seg-caption");
+    if (cap) {
+      cap.textContent = APP_NAMES[appIdx] || APP_NAMES[0];
+    }
+    var fill = el("cc-seg-fill");
+    if (fill) {
+      fill.style.height = "100%";
+    }
     var fck = el("cc-in-fck");
     if (el("cc-out-fck") && fck && fck.selectedOptions[0]) {
       el("cc-out-fck").textContent = fck.selectedOptions[0].textContent.trim();
