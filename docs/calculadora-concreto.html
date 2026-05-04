@@ -37,8 +37,8 @@
                     <div class="absolute left-0 top-full pt-2 z-50 w-64 min-w-[14rem]" role="group" aria-label="Orçamento e calculadoras">
                         <div class="rounded-xl border border-brand-gray-200 bg-white shadow-lg py-2">
                             <a href="orcamento.html" role="menuitem" class="block px-4 py-2.5 text-sm rounded-lg mx-1 text-brand-gray-700 hover:bg-brand-gray-50 hover:text-brand-navy">Central de orçamentos</a>
-                            <a href="calculadora-concreto.html" role="menuitem" class="block px-4 py-2.5 text-sm rounded-lg mx-1 font-semibold text-brand-accent bg-brand-navy/5">Calculadora de concreto</a>
-                            <a href="calculadora-solar.html" role="menuitem" class="block px-4 py-2.5 text-sm rounded-lg mx-1 text-brand-gray-700 hover:bg-brand-gray-50 hover:text-brand-navy">Calculadora solar (UNISOLAR)</a>
+                            <a href="calculadora-concreto.html" role="menuitem" class="block px-4 py-2.5 text-sm rounded-lg mx-1 font-semibold text-brand-accent bg-brand-navy/5 js-calc-modal" data-modal-title="Calculadora de concreto">Calculadora de concreto</a>
+                            <a href="calculadora-solar.html" role="menuitem" class="block px-4 py-2.5 text-sm rounded-lg mx-1 text-brand-gray-700 hover:bg-brand-gray-50 hover:text-brand-navy js-calc-modal" data-modal-title="Calculadora solar (UNISOLAR)">Calculadora solar (UNISOLAR)</a>
                         </div>
                     </div>
                 </details>
@@ -67,13 +67,26 @@
             <div class="mt-4 pt-2 border-t border-brand-gray-100">
             <p class="text-xs font-bold text-brand-gray-400 uppercase tracking-wider mb-2">Orçamento</p>
             <a href="orcamento.html" class="block py-2.5 px-2 rounded-lg text-sm text-brand-gray-700 hover:bg-brand-gray-50">Central de orçamentos</a>
-            <a href="calculadora-concreto.html" class="block py-2.5 px-2 rounded-lg text-sm font-semibold text-brand-accent bg-brand-navy/5">Calculadora de concreto</a>
-            <a href="calculadora-solar.html" class="block py-2.5 px-2 rounded-lg text-sm text-brand-gray-700 hover:bg-brand-gray-50">Calculadora solar (UNISOLAR)</a>
+            <a href="calculadora-concreto.html" class="block py-2.5 px-2 rounded-lg text-sm font-semibold text-brand-accent bg-brand-navy/5 js-calc-modal" data-modal-title="Calculadora de concreto">Calculadora de concreto</a>
+            <a href="calculadora-solar.html" class="block py-2.5 px-2 rounded-lg text-sm text-brand-gray-700 hover:bg-brand-gray-50 js-calc-modal" data-modal-title="Calculadora solar (UNISOLAR)">Calculadora solar (UNISOLAR)</a>
             </div>
             <p class="text-xs font-bold text-brand-gray-400 uppercase tracking-wider mt-4 mb-2">Outros</p>
             <a href="sorteio.html" class="block py-2.5 px-2 rounded-lg text-sm text-brand-gray-700 hover:bg-brand-gray-50">Sorteios</a>
 
         </nav>
+    </div>
+
+    <div id="calc-modal" class="hidden fixed inset-0 z-[100] flex flex-col justify-center p-0 sm:p-4 md:p-6" aria-hidden="true" aria-labelledby="calc-modal-title">
+        <div id="calc-modal-backdrop" class="absolute inset-0 bg-brand-navy/55 backdrop-blur-[2px]"></div>
+        <div class="relative z-10 flex min-h-0 flex-1 flex-col w-full max-w-6xl mx-auto sm:max-h-[min(92vh,900px)] sm:rounded-2xl sm:shadow-2xl sm:border sm:border-brand-gray-200 bg-white overflow-hidden">
+            <div class="flex shrink-0 items-center justify-between gap-3 border-b border-brand-gray-100 bg-white px-4 py-3">
+                <span id="calc-modal-title" class="truncate text-base font-semibold text-brand-navy">Calculadora</span>
+                <button type="button" id="calc-modal-close" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-brand-gray-200 text-brand-gray-600 hover:bg-brand-gray-50 hover:text-brand-navy" aria-label="Fechar calculadora">
+                    <i class="fa-solid fa-xmark text-lg" aria-hidden="true"></i>
+                </button>
+            </div>
+            <iframe id="calc-modal-frame" class="min-h-0 flex-1 w-full border-0 bg-white" title="Calculadora"></iframe>
+        </div>
     </div>
 
     <a href="https://wa.me/5517991744642?text=Ol%C3%A1%21%20Estou%20entrando%20em%20contato%20pelo%20site%20do%20Grupo%20Conpav." target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform duration-300" aria-label="WhatsApp">

@@ -18,6 +18,7 @@ BASE = REPO / "base-criacao"
 STATIC_JS = SITE / "js"
 CONCRETO_UI_CSS = SITE / "css" / "calculadora-concreto-ui.css"
 HEADER_NAV_CSS = SITE / "css" / "header-nav.css"
+CALC_MODAL_CSS = SITE / "css" / "calc-modal.css"
 
 ORCAMENTO_SUB_ACTIVE = frozenset({"orcamento", "concreto", "solar"})
 
@@ -292,11 +293,11 @@ def augment_orcamento_html(main_frag: str) -> str:
                     — estimativas interativas para apoiar seu pedido de orçamento na central abaixo.
                 </p>
                 <div class="flex flex-wrap gap-3 shrink-0">
-                    <a href="calculadora-concreto.html" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-brand-gray-200 text-sm font-semibold text-brand-navy hover:border-brand-navy/40 transition-colors">
+                    <a href="calculadora-concreto.html" data-modal-title="Calculadora de concreto" class="js-calc-modal inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-brand-gray-200 text-sm font-semibold text-brand-navy hover:border-brand-navy/40 transition-colors">
                         <i class="fa-solid fa-cube" aria-hidden="true"></i>
                         Concreto
                     </a>
-                    <a href="calculadora-solar.html" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-navy text-white text-sm font-semibold hover:bg-brand-navy/90 transition-colors">
+                    <a href="calculadora-solar.html" data-modal-title="Calculadora solar (UNISOLAR)" class="js-calc-modal inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-navy text-white text-sm font-semibold hover:bg-brand-navy/90 transition-colors">
                         <i class="fa-solid fa-solar-panel" aria-hidden="true"></i>
                         Solar (UNISOLAR)
                     </a>
@@ -359,20 +360,30 @@ def nav_link(href: str, pid: str, label: str, active: str) -> str:
     return f'                <a href="{href}" class="{cls}">{label}</a>'
 
 
-def _orcamento_sub_link_desktop(href: str, pid: str, label: str, active: str) -> str:
+def _orcamento_sub_link_desktop(
+    href: str, pid: str, label: str, active: str, *, calc_modal: bool = False
+) -> str:
     if pid == active:
         acl = "block px-4 py-2.5 text-sm rounded-lg mx-1 font-semibold text-brand-accent bg-brand-navy/5"
     else:
         acl = "block px-4 py-2.5 text-sm rounded-lg mx-1 text-brand-gray-700 hover:bg-brand-gray-50 hover:text-brand-navy"
-    return f'                            <a href="{href}" role="menuitem" class="{acl}">{label}</a>'
+    if calc_modal:
+        acl += " js-calc-modal"
+    extra = f' data-modal-title="{html_lib.escape(label)}"' if calc_modal else ""
+    return f'                            <a href="{href}" role="menuitem" class="{acl}"{extra}>{label}</a>'
 
 
-def _orcamento_sub_link_mobile(href: str, pid: str, label: str, active: str) -> str:
+def _orcamento_sub_link_mobile(
+    href: str, pid: str, label: str, active: str, *, calc_modal: bool = False
+) -> str:
     if pid == active:
         acl = "block py-2.5 px-2 rounded-lg text-sm font-semibold text-brand-accent bg-brand-navy/5"
     else:
         acl = "block py-2.5 px-2 rounded-lg text-sm text-brand-gray-700 hover:bg-brand-gray-50"
-    return f'            <a href="{href}" class="{acl}">{label}</a>'
+    if calc_modal:
+        acl += " js-calc-modal"
+    extra = f' data-modal-title="{html_lib.escape(label)}"' if calc_modal else ""
+    return f'            <a href="{href}" class="{acl}"{extra}>{label}</a>'
 
 
 def _orcamento_dropdown_desktop(active: str) -> str:
@@ -386,10 +397,18 @@ def _orcamento_dropdown_desktop(active: str) -> str:
         [
             _orcamento_sub_link_desktop("orcamento.html", "orcamento", "Central de orçamentos", active),
             _orcamento_sub_link_desktop(
-                "calculadora-concreto.html", "concreto", "Calculadora de concreto", active
+                "calculadora-concreto.html",
+                "concreto",
+                "Calculadora de concreto",
+                active,
+                calc_modal=True,
             ),
             _orcamento_sub_link_desktop(
-                "calculadora-solar.html", "solar", "Calculadora solar (UNISOLAR)", active
+                "calculadora-solar.html",
+                "solar",
+                "Calculadora solar (UNISOLAR)",
+                active,
+                calc_modal=True,
             ),
         ]
     )
@@ -429,10 +448,18 @@ def make_header(active: str) -> str:
             [
                 _orcamento_sub_link_mobile("orcamento.html", "orcamento", "Central de orçamentos", active),
                 _orcamento_sub_link_mobile(
-                    "calculadora-concreto.html", "concreto", "Calculadora de concreto", active
+                    "calculadora-concreto.html",
+                    "concreto",
+                    "Calculadora de concreto",
+                    active,
+                    calc_modal=True,
                 ),
                 _orcamento_sub_link_mobile(
-                    "calculadora-solar.html", "solar", "Calculadora solar (UNISOLAR)", active
+                    "calculadora-solar.html",
+                    "solar",
+                    "Calculadora solar (UNISOLAR)",
+                    active,
+                    calc_modal=True,
                 ),
             ]
         )
@@ -472,6 +499,19 @@ def make_header(active: str) -> str:
 {mobile_rows}
 {extra_mobile}
         </nav>
+    </div>
+
+    <div id="calc-modal" class="hidden fixed inset-0 z-[100] flex flex-col justify-center p-0 sm:p-4 md:p-6" aria-hidden="true" aria-labelledby="calc-modal-title">
+        <div id="calc-modal-backdrop" class="absolute inset-0 bg-brand-navy/55 backdrop-blur-[2px]"></div>
+        <div class="relative z-10 flex min-h-0 flex-1 flex-col w-full max-w-6xl mx-auto sm:max-h-[min(92vh,900px)] sm:rounded-2xl sm:shadow-2xl sm:border sm:border-brand-gray-200 bg-white overflow-hidden">
+            <div class="flex shrink-0 items-center justify-between gap-3 border-b border-brand-gray-100 bg-white px-4 py-3">
+                <span id="calc-modal-title" class="truncate text-base font-semibold text-brand-navy">Calculadora</span>
+                <button type="button" id="calc-modal-close" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-brand-gray-200 text-brand-gray-600 hover:bg-brand-gray-50 hover:text-brand-navy" aria-label="Fechar calculadora">
+                    <i class="fa-solid fa-xmark text-lg" aria-hidden="true"></i>
+                </button>
+            </div>
+            <iframe id="calc-modal-frame" class="min-h-0 flex-1 w-full border-0 bg-white" title="Calculadora"></iframe>
+        </div>
     </div>
 
     <a href="{WHATSAPP_URL}" target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform duration-300" aria-label="WhatsApp">
@@ -549,6 +589,8 @@ def main() -> None:
         css_bundle += "\n\n" + CONCRETO_UI_CSS.read_text(encoding="utf-8")
     if HEADER_NAV_CSS.is_file():
         css_bundle += "\n\n" + HEADER_NAV_CSS.read_text(encoding="utf-8")
+    if CALC_MODAL_CSS.is_file():
+        css_bundle += "\n\n" + CALC_MODAL_CSS.read_text(encoding="utf-8")
     (ROOT / "css" / "main.css").write_text(css_bundle, encoding="utf-8")
     print("wrote", (ROOT / "css" / "main.css").relative_to(REPO))
 

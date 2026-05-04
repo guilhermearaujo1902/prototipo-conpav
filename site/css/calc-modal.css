@@ -1,0 +1,19 @@
+/* Modal das calculadoras (página pai) */
+body.calc-modal-open {
+  overflow: hidden;
+}
+
+#calc-modal:not(.hidden) {
+  pointer-events: auto;
+}
+
+/* Calculadora carregada no iframe: layout enxuto */
+body.calc-embed #header,
+body.calc-embed #mobile-nav,
+body.calc-embed > a[aria-label="WhatsApp"] {
+  display: none !important;
+}
+
+body.calc-embed main.flex-grow {
+  padding-top: 0.75rem !important;
+}

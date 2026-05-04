@@ -219,3 +219,17 @@
     start();
   }
 })();
+
+(function calcEmbedMode() {
+  function apply() {
+    try {
+      if (new URLSearchParams(window.location.search).get("embed") !== "1") return;
+      document.body.classList.add("calc-embed");
+      document.querySelectorAll('a[href="orcamento.html"]').forEach(function (a) {
+        a.setAttribute("target", "_parent");
+      });
+    } catch (err) {}
+  }
+  if (document.body) apply();
+  else document.addEventListener("DOMContentLoaded", apply);
+})();
