@@ -61,7 +61,7 @@
         </nav>
     </div>
 
-    <a href="https://wa.me/5511300000000" target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform duration-300" aria-label="WhatsApp">
+    <a href="https://wa.me/5517991744642?text=Ol%C3%A1%21%20Estou%20entrando%20em%20contato%20pelo%20site%20do%20Grupo%20Conpav." target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform duration-300" aria-label="WhatsApp">
         <i class="fa-brands fa-whatsapp text-3xl" aria-hidden="true"></i>
         <span class="absolute top-0 right-0 w-4 h-4 bg-brand-accent rounded-full border-2 border-white animate-pulse" aria-hidden="true"></span>
     </a>
@@ -158,21 +158,21 @@
                                 <div>
                                     <label class="custom-label">Comprimento (metros)</label>
                                     <div class="relative">
-                                        <input type="number" class="custom-input pr-10" placeholder="Ex: 12.5" value="10">
+                                        <input id="cc-in-length" type="number" class="custom-input pr-10" placeholder="Ex: 12.5" value="10">
                                         <span class="absolute right-4 top-1/2 -translate-y-1/2 text-brand-gray-400 text-sm">m</span>
                                     </div>
                                 </div>
                                 <div>
                                     <label class="custom-label">Largura (metros)</label>
                                     <div class="relative">
-                                        <input type="number" class="custom-input pr-10" placeholder="Ex: 8.0" value="5">
+                                        <input id="cc-in-width" type="number" class="custom-input pr-10" placeholder="Ex: 8.0" value="5">
                                         <span class="absolute right-4 top-1/2 -translate-y-1/2 text-brand-gray-400 text-sm">m</span>
                                     </div>
                                 </div>
                                 <div>
                                     <label class="custom-label">Espessura/Altura (centímetros)</label>
                                     <div class="relative">
-                                        <input type="number" class="custom-input pr-12" placeholder="Ex: 15" value="15">
+                                        <input id="cc-in-thick" type="number" class="custom-input pr-12" placeholder="Ex: 15" value="15">
                                         <span class="absolute right-4 top-1/2 -translate-y-1/2 text-brand-gray-400 text-sm">cm</span>
                                     </div>
                                 </div>
@@ -196,9 +196,9 @@
                                 <div class="pt-2">
                                     <div class="flex justify-between items-center mb-2">
                                         <label class="custom-label mb-0">Fator de Perda (Desperdício)</label>
-                                        <span class="text-sm font-bold text-brand-navy">5%</span>
+                                        <span id="cc-in-loss-label" class="text-sm font-bold text-brand-navy">5%</span>
                                     </div>
-                                    <input type="range" min="0" max="15" value="5" class="w-full">
+                                    <input id="cc-in-loss" type="range" min="0" max="15" value="5" class="w-full">
                                     <div class="flex justify-between text-xs text-brand-gray-400 mt-1">
                                         <span>0% (Exato)</span>
                                         <span>Recomendado: 5%</span>
@@ -208,7 +208,7 @@
 
                                 <div class="pt-4 border-t border-brand-gray-100">
                                     <label class="flex items-center gap-3 p-3 rounded-xl border border-brand-gray-200 cursor-pointer hover:bg-brand-gray-50 transition-colors">
-                                        <input type="checkbox" class="w-5 h-5 rounded border-brand-gray-300 text-brand-navy focus:ring-brand-navy" checked>
+                                        <input id="cc-in-pump" type="checkbox" class="w-5 h-5 rounded border-brand-gray-300 text-brand-navy focus:ring-brand-navy" checked>
                                         <div>
                                             <span class="text-sm font-medium text-brand-gray-900 block">Necessita Bombeamento?</span>
                                             <span class="text-xs text-brand-gray-500">Para locais de difícil acesso ou lajes elevadas.</span>
@@ -236,7 +236,7 @@
                             <div>
                                 <label class="custom-label">CEP da Obra</label>
                                 <div class="flex gap-2">
-                                    <input type="text" class="custom-input" placeholder="00000-000">
+                                    <input id="cc-in-cep" type="text" class="custom-input" placeholder="00000-000">
                                     <button class="px-4 bg-brand-gray-100 text-brand-gray-600 rounded-lg hover:bg-brand-gray-200 transition-colors font-medium text-sm">Buscar</button>
                                 </div>
                             </div>
@@ -257,12 +257,12 @@
                         <div class="p-6 bg-brand-navy border-b border-white/10 text-center">
                             <h3 class="text-sm font-medium text-brand-gray-300 uppercase tracking-widest mb-2">Volume Total Estimado</h3>
                             <div class="flex items-end justify-center gap-2 mb-2">
-                                <span class="text-5xl font-extrabold text-white leading-none">7.88</span>
+                                <span id="cc-out-volume" class="text-5xl font-extrabold text-white leading-none">7.88</span>
                                 <span class="text-xl text-brand-gray-400 mb-1">m³</span>
                             </div>
-                            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-brand-accent/20 text-brand-accent text-xs font-semibold mt-2">
+                            <div id="cc-out-loss-badge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-brand-accent/20 text-brand-accent text-xs font-semibold mt-2">
                                 <i class="fa-solid fa-circle-plus"></i>
-                                Inclui 5% de perda
+                                <span id="cc-out-loss-text">Inclui 5% de perda</span>
                             </div>
                         </div>
 
@@ -277,8 +277,8 @@
                                     <i class="fa-solid fa-truck-front text-3xl text-brand-navy"></i>
                                 </div>
                                 <div>
-                                    <div class="text-2xl font-bold text-brand-gray-900">1 Caminhão</div>
-                                    <div class="text-sm text-brand-gray-500">Betoneira padrão</div>
+                                    <div id="cc-out-trucks" class="text-2xl font-bold text-brand-gray-900">1 Caminhão</div>
+                                    <div id="cc-out-truck-hint" class="text-sm text-brand-gray-500">Betoneira padrão</div>
                                 </div>
                             </div>
                         </div>
@@ -289,19 +289,19 @@
                             <ul class="space-y-3 mb-6">
                                 <li class="flex justify-between items-center text-sm border-b border-brand-gray-50 pb-2">
                                     <span class="text-brand-gray-500">Aplicação</span>
-                                    <span class="font-semibold text-brand-gray-900">Laje / Piso</span>
+                                    <span id="cc-out-app" class="font-semibold text-brand-gray-900">Laje / Piso</span>
                                 </li>
                                 <li class="flex justify-between items-center text-sm border-b border-brand-gray-50 pb-2">
                                     <span class="text-brand-gray-500">Resistência</span>
-                                    <span class="font-semibold text-brand-gray-900">25 MPa</span>
+                                    <span id="cc-out-fck" class="font-semibold text-brand-gray-900">25 MPa</span>
                                 </li>
                                 <li class="flex justify-between items-center text-sm border-b border-brand-gray-50 pb-2">
                                     <span class="text-brand-gray-500">Bombeamento</span>
-                                    <span class="font-semibold text-brand-navy bg-brand-navy/5 px-2 py-0.5 rounded">Incluso</span>
+                                    <span id="cc-out-pump" class="font-semibold text-brand-navy bg-brand-navy/5 px-2 py-0.5 rounded">Incluso</span>
                                 </li>
                                 <li class="flex justify-between items-center text-sm pb-2">
                                     <span class="text-brand-gray-500">CEP</span>
-                                    <span class="font-semibold text-brand-gray-900">Pendente</span>
+                                    <span id="cc-out-cep" class="font-semibold text-brand-gray-900">Pendente</span>
                                 </li>
                             </ul>
 
@@ -458,5 +458,6 @@
 
     </main>
     <script src="js/main.js" defer></script>
+    <script src="js/calculadora-concreto.js" defer></script>
 </body>
 </html>

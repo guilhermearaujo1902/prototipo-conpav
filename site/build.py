@@ -9,12 +9,22 @@ import html as html_lib
 import re
 import shutil
 from pathlib import Path
+from urllib.parse import quote
 
 REPO = Path(__file__).resolve().parent.parent
 SITE = Path(__file__).resolve().parent
 ROOT = REPO / "docs"
 BASE = REPO / "base-criacao"
 STATIC_JS = SITE / "js"
+
+# WhatsApp: número informado "017 991744642" → internacional 55 + DDD 17 + 991744642
+WHATSAPP_PHONE_E164 = "5517991744642"
+_WHATSAPP_PREFILL = (
+    "Olá! Estou entrando em contato pelo site do Grupo Conpav."
+)
+WHATSAPP_URL = (
+    f"https://wa.me/{WHATSAPP_PHONE_E164}?text={quote(_WHATSAPP_PREFILL, safe='')}"
+)
 
 END_TAIL = re.compile(r"\s*(width|height|title|class|style|frameborder|/>|>)")
 
@@ -51,6 +61,199 @@ def extract_title(full: str) -> str:
 
 def blog_rename_tabs(fragment: str) -> str:
     return fragment.replace("switchTab(", "switchBlogTab(")
+
+
+def augment_calculator_html(main_frag: str, src_name: str) -> str:
+    """Injeta ids estáveis para os scripts das calculadoras (conteúdo do srcdoc)."""
+    if src_name == "calculadora-concreto.html":
+        h = main_frag
+        h = h.replace(
+            '<span class="text-5xl font-extrabold text-white leading-none">7.88</span>',
+            '<span id="cc-out-volume" class="text-5xl font-extrabold text-white leading-none">7.88</span>',
+            1,
+        )
+        h = h.replace(
+            '<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-brand-accent/20 text-brand-accent text-xs font-semibold mt-2">\n'
+            "                                <i class=\"fa-solid fa-circle-plus\"></i>\n"
+            "                                Inclui 5% de perda\n"
+            "                            </div>",
+            '<div id="cc-out-loss-badge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-brand-accent/20 text-brand-accent text-xs font-semibold mt-2">\n'
+            "                                <i class=\"fa-solid fa-circle-plus\"></i>\n"
+            '                                <span id="cc-out-loss-text">Inclui 5% de perda</span>\n'
+            "                            </div>",
+            1,
+        )
+        h = h.replace(
+            '<div class="text-2xl font-bold text-brand-gray-900">1 Caminhão</div>',
+            '<div id="cc-out-trucks" class="text-2xl font-bold text-brand-gray-900">1 Caminhão</div>',
+            1,
+        )
+        h = h.replace(
+            '<div class="text-sm text-brand-gray-500">Betoneira padrão</div>',
+            '<div id="cc-out-truck-hint" class="text-sm text-brand-gray-500">Betoneira padrão</div>',
+            1,
+        )
+        h = h.replace(
+            '<span class="text-brand-gray-500">Aplicação</span>\n'
+            '                                    <span class="font-semibold text-brand-gray-900">',
+            '<span class="text-brand-gray-500">Aplicação</span>\n'
+            '                                    <span id="cc-out-app" class="font-semibold text-brand-gray-900">',
+            1,
+        )
+        h = h.replace(
+            '<span class="text-brand-gray-500">Resistência</span>\n'
+            '                                    <span class="font-semibold text-brand-gray-900">',
+            '<span class="text-brand-gray-500">Resistência</span>\n'
+            '                                    <span id="cc-out-fck" class="font-semibold text-brand-gray-900">',
+            1,
+        )
+        h = h.replace(
+            '<span class="text-brand-gray-500">Bombeamento</span>\n'
+            '                                    <span class="font-semibold text-brand-navy bg-brand-navy/5 px-2 py-0.5 rounded">',
+            '<span class="text-brand-gray-500">Bombeamento</span>\n'
+            '                                    <span id="cc-out-pump" class="font-semibold text-brand-navy bg-brand-navy/5 px-2 py-0.5 rounded">',
+            1,
+        )
+        h = h.replace(
+            '<span class="text-brand-gray-500">CEP</span>\n'
+            '                                    <span class="font-semibold text-brand-gray-900">',
+            '<span class="text-brand-gray-500">CEP</span>\n'
+            '                                    <span id="cc-out-cep" class="font-semibold text-brand-gray-900">',
+            1,
+        )
+        h = h.replace(
+            'Comprimento (metros)</label>\n'
+            '                                    <div class="relative">\n'
+            '                                        <input type="number"',
+            'Comprimento (metros)</label>\n'
+            '                                    <div class="relative">\n'
+            '                                        <input id="cc-in-length" type="number"',
+            1,
+        )
+        h = h.replace(
+            'Largura (metros)</label>\n'
+            '                                    <div class="relative">\n'
+            '                                        <input type="number"',
+            'Largura (metros)</label>\n'
+            '                                    <div class="relative">\n'
+            '                                        <input id="cc-in-width" type="number"',
+            1,
+        )
+        h = h.replace(
+            "Espessura/Altura (centímetros)</label>\n"
+            '                                    <div class="relative">\n'
+            '                                        <input type="number"',
+            "Espessura/Altura (centímetros)</label>\n"
+            '                                    <div class="relative">\n'
+            '                                        <input id="cc-in-thick" type="number"',
+            1,
+        )
+        h = h.replace(
+            '<input type="range" min="0" max="15" value="5" class="w-full">',
+            '<input id="cc-in-loss" type="range" min="0" max="15" value="5" class="w-full">',
+            1,
+        )
+        h = h.replace(
+            '<label class="custom-label mb-0">Fator de Perda (Desperdício)</label>\n'
+            '                                        <span class="text-sm font-bold text-brand-navy">5%</span>',
+            '<label class="custom-label mb-0">Fator de Perda (Desperdício)</label>\n'
+            '                                        <span id="cc-in-loss-label" class="text-sm font-bold text-brand-navy">5%</span>',
+            1,
+        )
+        h = h.replace(
+            '<label class="custom-label">Classe de Resistência (Fck)</label>\n'
+            '                                <select class="custom-input',
+            '<label class="custom-label">Classe de Resistência (Fck)</label>\n'
+            '                                <select id="cc-in-fck" class="custom-input',
+            1,
+        )
+        h = h.replace(
+            '<input type="checkbox" class="w-5 h-5 rounded border-brand-gray-300 text-brand-navy focus:ring-brand-navy" checked>',
+            '<input id="cc-in-pump" type="checkbox" class="w-5 h-5 rounded border-brand-gray-300 text-brand-navy focus:ring-brand-navy" checked>',
+            1,
+        )
+        h = h.replace(
+            '<label class="custom-label">CEP da Obra</label>\n'
+            '                                <div class="flex gap-2">\n'
+            '                                    <input type="text" class="custom-input" placeholder="00000-000">',
+            '<label class="custom-label">CEP da Obra</label>\n'
+            '                                <div class="flex gap-2">\n'
+            '                                    <input id="cc-in-cep" type="text" class="custom-input" placeholder="00000-000">',
+            1,
+        )
+        return h
+
+    if src_name == "calculadora-solar.html":
+        h = main_frag
+        h = h.replace(
+            '<label class="custom-label mb-0">Valor Médio da Conta de Luz (Mensal)</label>',
+            '<label id="cs-label-main" class="custom-label mb-0">Valor Médio da Conta de Luz (Mensal)</label>',
+            1,
+        )
+        h = re.sub(
+            r'<span class="text-lg font-bold text-brand-navy">R\$ [\d.,]+</span>',
+            '<span id="cs-disp-main" class="text-lg font-bold text-brand-navy">R$ 850,00</span>',
+            h,
+            count=1,
+        )
+        h = h.replace(
+            '<input type="range" min="100" max="5000" step="50" value="850" class="w-full">',
+            '<input id="cs-main-range" type="range" min="100" max="5000" step="50" value="850" class="w-full">',
+            1,
+        )
+        h = h.replace(
+            '<div class="text-2xl font-bold text-white">6.4 <span class="text-sm text-brand-gray-400 font-normal">kWp</span></div>',
+            '<div class="text-2xl font-bold text-white"><span id="cs-out-kwp">6.4</span> <span class="text-sm text-brand-gray-400 font-normal">kWp</span></div>',
+            1,
+        )
+        h = h.replace(
+            '<div class="text-2xl font-bold text-white">820 <span class="text-sm text-brand-gray-400 font-normal">kWh</span></div>',
+            '<div class="text-2xl font-bold text-white"><span id="cs-out-gen">820</span> <span class="text-sm text-brand-gray-400 font-normal">kWh</span></div>',
+            1,
+        )
+        h = h.replace(
+            '<div class="text-2xl font-bold text-white">32 <span class="text-sm text-brand-gray-400 font-normal">m²</span></div>',
+            '<div class="text-2xl font-bold text-white"><span id="cs-out-area">32</span> <span class="text-sm text-brand-gray-400 font-normal">m²</span></div>',
+            1,
+        )
+        h = h.replace(
+            '<div class="text-2xl font-bold text-white">12 <span class="text-sm text-brand-gray-400 font-normal">und</span></div>',
+            '<div class="text-2xl font-bold text-white"><span id="cs-out-mod">12</span> <span class="text-sm text-brand-gray-400 font-normal">und</span></div>',
+            1,
+        )
+        h = h.replace(
+            '<div class="text-xl font-bold text-[#10B981]">R$ 9.690,00</div>',
+            '<div class="text-xl font-bold text-[#10B981]"><span id="cs-out-saving">R$ 9.690,00</span></div>',
+            1,
+        )
+        h = h.replace(
+            '<div class="text-lg font-bold text-white">R$ 85,00</div>',
+            '<div class="text-lg font-bold text-white"><span id="cs-out-newbill">R$ 85,00</span></div>',
+            1,
+        )
+        h = h.replace(
+            '<span class="text-sm font-bold text-brand-accent">3.5 a 4 anos</span>',
+            '<span id="cs-out-payback" class="text-sm font-bold text-brand-accent">3.5 a 4 anos</span>',
+            1,
+        )
+        h = h.replace(
+            '<div class="bg-brand-accent h-2 rounded-full" style="width: 25%"></div>',
+            '<div id="cs-out-payback-bar" class="bg-brand-accent h-2 rounded-full" style="width: 25%"></div>',
+            1,
+        )
+        h = h.replace(
+            '<div class="text-sm font-bold text-white">120 Árvores salvas</div>',
+            '<div class="text-sm font-bold text-white"><span id="cs-out-trees">120</span> Árvores salvas</div>',
+            1,
+        )
+        h = h.replace(
+            '<div class="text-3xl font-bold text-brand-gray-900 mb-1">820 <span class="text-sm font-normal text-brand-gray-500">kWh/mês</span></div>',
+            '<div class="text-3xl font-bold text-brand-gray-900 mb-1"><span id="cs-side-monthly">820</span> <span class="text-sm font-normal text-brand-gray-500">kWh/mês</span></div>',
+            1,
+        )
+        return h
+
+    return main_frag
 
 
 def make_head(*, title: str, plotly: bool) -> str:
@@ -137,7 +340,7 @@ def make_header(active: str) -> str:
         </nav>
     </div>
 
-    <a href="https://wa.me/5511300000000" target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform duration-300" aria-label="WhatsApp">
+    <a href="{WHATSAPP_URL}" target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform duration-300" aria-label="WhatsApp">
         <i class="fa-brands fa-whatsapp text-3xl" aria-hidden="true"></i>
         <span class="absolute top-0 right-0 w-4 h-4 bg-brand-accent rounded-full border-2 border-white animate-pulse" aria-hidden="true"></span>
     </a>
@@ -158,7 +361,7 @@ PAGES: list[tuple[str, str, str, str, bool, list[str]]] = [
         "concreto",
         "Grupo Conpav — Calculadora de concreto",
         False,
-        [],
+        ["js/calculadora-concreto.js"],
     ),
     (
         "calculadora-solar.html",
@@ -220,6 +423,8 @@ def main() -> None:
         main_frag = extract_main_fragment(inner)
         if src_name == "blog.html":
             main_frag = blog_rename_tabs(main_frag)
+        if src_name in ("calculadora-concreto.html", "calculadora-solar.html"):
+            main_frag = augment_calculator_html(main_frag, src_name)
 
         body = f"""<body class="text-brand-navy font-sans flex flex-col m-0 p-0">
 {make_header(active)}
