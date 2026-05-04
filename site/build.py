@@ -68,6 +68,21 @@ def blog_rename_tabs(fragment: str) -> str:
     return fragment.replace("switchTab(", "switchBlogTab(")
 
 
+_IMG_TAG = re.compile(r"<img\b([^>]*?)(\s*/?>)", re.I | re.S)
+
+
+def add_lazy_loading_to_images(html: str) -> str:
+    """Insere loading=\"lazy\" em <img> do fragmento que ainda não têm loading=."""
+
+    def repl(m: re.Match[str]) -> str:
+        attrs, closer = m.group(1), m.group(2)
+        if re.search(r"\bloading\s*=", attrs, re.I):
+            return m.group(0)
+        return f'<img loading="lazy"{attrs}{closer}'
+
+    return _IMG_TAG.sub(repl, html)
+
+
 def augment_calculator_html(main_frag: str, src_name: str) -> str:
     """Injeta ids estáveis para os scripts das calculadoras (conteúdo do srcdoc)."""
     if src_name == "calculadora-concreto.html":
@@ -609,6 +624,8 @@ def main() -> None:
             main_frag = augment_calculator_parent_strip(main_frag)
         if src_name == "orcamento.html":
             main_frag = augment_orcamento_html(main_frag)
+
+        main_frag = add_lazy_loading_to_images(main_frag)
 
         body = f"""<body class="text-brand-navy font-sans flex flex-col m-0 p-0">
 {make_header(active)}
