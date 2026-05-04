@@ -17,6 +17,9 @@ ROOT = REPO / "docs"
 BASE = REPO / "base-criacao"
 STATIC_JS = SITE / "js"
 CONCRETO_UI_CSS = SITE / "css" / "calculadora-concreto-ui.css"
+HEADER_NAV_CSS = SITE / "css" / "header-nav.css"
+
+ORCAMENTO_SUB_ACTIVE = frozenset({"orcamento", "concreto", "solar"})
 
 # WhatsApp: número informado "017 991744642" → internacional 55 + DDD 17 + 991744642
 WHATSAPP_PHONE_E164 = "5517991744642"
@@ -277,6 +280,52 @@ def augment_calculator_html(main_frag: str, src_name: str) -> str:
     return main_frag
 
 
+def augment_orcamento_html(main_frag: str) -> str:
+    """Destaca as calculadoras interativas como parte do fluxo de orçamento."""
+    needle = "        <!-- Calculators Content Area -->"
+    if needle not in main_frag:
+        return main_frag
+    insert = """        <section class="max-w-7xl mx-auto px-6 lg:px-12 py-6 relative z-10">
+            <div class="rounded-2xl border border-brand-navy/15 bg-brand-navy/5 px-6 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <p class="text-sm text-brand-gray-700 max-w-xl">
+                    <span class="font-semibold text-brand-navy">Calculadoras</span>
+                    — estimativas interativas para apoiar seu pedido de orçamento na central abaixo.
+                </p>
+                <div class="flex flex-wrap gap-3 shrink-0">
+                    <a href="calculadora-concreto.html" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-brand-gray-200 text-sm font-semibold text-brand-navy hover:border-brand-navy/40 transition-colors">
+                        <i class="fa-solid fa-cube" aria-hidden="true"></i>
+                        Concreto
+                    </a>
+                    <a href="calculadora-solar.html" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-navy text-white text-sm font-semibold hover:bg-brand-navy/90 transition-colors">
+                        <i class="fa-solid fa-solar-panel" aria-hidden="true"></i>
+                        Solar (UNISOLAR)
+                    </a>
+                </div>
+            </div>
+        </section>
+
+"""
+    return main_frag.replace(needle, insert + needle, 1)
+
+
+def augment_calculator_parent_strip(main_frag: str) -> str:
+    """Vincula visualmente as calculadoras à central de orçamentos."""
+    needle = '<main class="flex-grow pt-24 pb-20 grid-bg">\n        \n        <!-- Calculator Hero Section -->'
+    if needle not in main_frag:
+        return main_frag
+    strip = """        <div class="max-w-7xl mx-auto px-6 lg:px-12 pt-4">
+            <nav aria-label="Navegação secundária" class="text-sm">
+                <a href="orcamento.html" class="inline-flex items-center gap-2 text-brand-gray-600 hover:text-brand-navy font-medium transition-colors">
+                    <i class="fa-solid fa-arrow-left-long text-xs opacity-70" aria-hidden="true"></i>
+                    Central de orçamentos
+                </a>
+            </nav>
+        </div>
+
+"""
+    return main_frag.replace(needle, '<main class="flex-grow pt-24 pb-20 grid-bg">\n' + strip + "\n        <!-- Calculator Hero Section -->", 1)
+
+
 def make_head(*, title: str, plotly: bool) -> str:
     plotly_line = ""
     if plotly:
@@ -310,26 +359,90 @@ def nav_link(href: str, pid: str, label: str, active: str) -> str:
     return f'                <a href="{href}" class="{cls}">{label}</a>'
 
 
+def _orcamento_sub_link_desktop(href: str, pid: str, label: str, active: str) -> str:
+    if pid == active:
+        acl = "block px-4 py-2.5 text-sm rounded-lg mx-1 font-semibold text-brand-accent bg-brand-navy/5"
+    else:
+        acl = "block px-4 py-2.5 text-sm rounded-lg mx-1 text-brand-gray-700 hover:bg-brand-gray-50 hover:text-brand-navy"
+    return f'                            <a href="{href}" role="menuitem" class="{acl}">{label}</a>'
+
+
+def _orcamento_sub_link_mobile(href: str, pid: str, label: str, active: str) -> str:
+    if pid == active:
+        acl = "block py-2.5 px-2 rounded-lg text-sm font-semibold text-brand-accent bg-brand-navy/5"
+    else:
+        acl = "block py-2.5 px-2 rounded-lg text-sm text-brand-gray-700 hover:bg-brand-gray-50"
+    return f'            <a href="{href}" class="{acl}">{label}</a>'
+
+
+def _orcamento_dropdown_desktop(active: str) -> str:
+    orc_active = active in ORCAMENTO_SUB_ACTIVE
+    sum_cls = (
+        "list-none cursor-pointer inline-flex items-center gap-1.5 text-sm font-semibold text-brand-accent border-b-2 border-brand-accent pb-1"
+        if orc_active
+        else "list-none cursor-pointer inline-flex items-center gap-1.5 text-sm font-medium text-brand-gray-600 hover:text-brand-navy border-b-2 border-transparent pb-1 transition-colors"
+    )
+    subs = "\n".join(
+        [
+            _orcamento_sub_link_desktop("orcamento.html", "orcamento", "Central de orçamentos", active),
+            _orcamento_sub_link_desktop(
+                "calculadora-concreto.html", "concreto", "Calculadora de concreto", active
+            ),
+            _orcamento_sub_link_desktop(
+                "calculadora-solar.html", "solar", "Calculadora solar (UNISOLAR)", active
+            ),
+        ]
+    )
+    return f"""                <details class="relative group nav-orcamento-wrap">
+                    <summary class="{sum_cls}">
+                        Orçamento
+                        <i class="fa-solid fa-chevron-down text-xs opacity-70 nav-orcamento-chevron transition-transform duration-200" aria-hidden="true"></i>
+                    </summary>
+                    <div class="absolute left-0 top-full pt-2 z-50 w-64 min-w-[14rem]" role="group" aria-label="Orçamento e calculadoras">
+                        <div class="rounded-xl border border-brand-gray-200 bg-white shadow-lg py-2">
+{subs}
+                        </div>
+                    </div>
+                </details>"""
+
+
 def make_header(active: str) -> str:
-    items = [
+    items_main = [
         ("index.html", "index", "Início"),
         ("galeria.html", "galeria", "Galeria"),
         ("blog.html", "blog", "Blog"),
         ("sobre.html", "sobre", "Sobre"),
         ("contato.html", "contato", "Contato"),
-        ("orcamento.html", "orcamento", "Orçamento"),
     ]
-    nav_html = "\n".join(nav_link(h, p, l, active) for h, p, l in items)
+    nav_html = "\n".join(nav_link(h, p, l, active) for h, p, l in items_main)
+    nav_html += "\n" + _orcamento_dropdown_desktop(active)
     mobile_rows = "\n".join(
         f'            <a href="{h}" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">{l}</a>'
-        for h, p, l in items
+        for h, p, l in items_main
     )
-    extra_mobile = """
-            <p class="text-xs font-bold text-brand-gray-400 uppercase tracking-wider mt-4 mb-2">Ferramentas</p>
-            <a href="calculadora-concreto.html" class="py-2 px-2 text-brand-gray-600">Calculadora de concreto</a>
-            <a href="calculadora-solar.html" class="py-2 px-2 text-brand-gray-600">Calculadora solar (UNISOLAR)</a>
-            <a href="sorteio.html" class="py-2 px-2 text-brand-gray-600">Sorteios</a>
+    extra_mobile = (
+        """
+            <div class="mt-4 pt-2 border-t border-brand-gray-100">
+            <p class="text-xs font-bold text-brand-gray-400 uppercase tracking-wider mb-2">Orçamento</p>
 """
+        + "\n".join(
+            [
+                _orcamento_sub_link_mobile("orcamento.html", "orcamento", "Central de orçamentos", active),
+                _orcamento_sub_link_mobile(
+                    "calculadora-concreto.html", "concreto", "Calculadora de concreto", active
+                ),
+                _orcamento_sub_link_mobile(
+                    "calculadora-solar.html", "solar", "Calculadora solar (UNISOLAR)", active
+                ),
+            ]
+        )
+        + """
+            </div>
+            <p class="text-xs font-bold text-brand-gray-400 uppercase tracking-wider mt-4 mb-2">Outros</p>
+"""
+        + _orcamento_sub_link_mobile("sorteio.html", "sorteio", "Sorteios", active)
+        + "\n"
+    )
     return f"""
     <header id="header" class="fixed top-0 w-full z-50 glass-card border-b border-brand-gray-200 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
@@ -434,6 +547,8 @@ def main() -> None:
     css_bundle = aggregate_css()
     if CONCRETO_UI_CSS.is_file():
         css_bundle += "\n\n" + CONCRETO_UI_CSS.read_text(encoding="utf-8")
+    if HEADER_NAV_CSS.is_file():
+        css_bundle += "\n\n" + HEADER_NAV_CSS.read_text(encoding="utf-8")
     (ROOT / "css" / "main.css").write_text(css_bundle, encoding="utf-8")
     print("wrote", (ROOT / "css" / "main.css").relative_to(REPO))
 
@@ -449,6 +564,9 @@ def main() -> None:
             main_frag = blog_rename_tabs(main_frag)
         if src_name in ("calculadora-concreto.html", "calculadora-solar.html"):
             main_frag = augment_calculator_html(main_frag, src_name)
+            main_frag = augment_calculator_parent_strip(main_frag)
+        if src_name == "orcamento.html":
+            main_frag = augment_orcamento_html(main_frag)
 
         body = f"""<body class="text-brand-navy font-sans flex flex-col m-0 p-0">
 {make_header(active)}

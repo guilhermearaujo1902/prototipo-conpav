@@ -1,0 +1,12 @@
+/* Menu Orçamento (details): remove marcador nativo e anima seta */
+.nav-orcamento-wrap > summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-orcamento-wrap > summary {
+  list-style: none;
+}
+
+.nav-orcamento-wrap[open] .nav-orcamento-chevron {
+  transform: rotate(180deg);
+}

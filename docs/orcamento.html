@@ -29,7 +29,19 @@
                 <a href="blog.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Blog</a>
                 <a href="sobre.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Sobre</a>
                 <a href="contato.html" class="text-sm font-medium text-brand-gray-600 hover:text-brand-navy transition-colors">Contato</a>
-                <a href="orcamento.html" class="text-sm font-semibold text-brand-accent border-b-2 border-brand-accent pb-1">Orçamento</a>
+                <details class="relative group nav-orcamento-wrap">
+                    <summary class="list-none cursor-pointer inline-flex items-center gap-1.5 text-sm font-semibold text-brand-accent border-b-2 border-brand-accent pb-1">
+                        Orçamento
+                        <i class="fa-solid fa-chevron-down text-xs opacity-70 nav-orcamento-chevron transition-transform duration-200" aria-hidden="true"></i>
+                    </summary>
+                    <div class="absolute left-0 top-full pt-2 z-50 w-64 min-w-[14rem]" role="group" aria-label="Orçamento e calculadoras">
+                        <div class="rounded-xl border border-brand-gray-200 bg-white shadow-lg py-2">
+                            <a href="orcamento.html" role="menuitem" class="block px-4 py-2.5 text-sm rounded-lg mx-1 font-semibold text-brand-accent bg-brand-navy/5">Central de orçamentos</a>
+                            <a href="calculadora-concreto.html" role="menuitem" class="block px-4 py-2.5 text-sm rounded-lg mx-1 text-brand-gray-700 hover:bg-brand-gray-50 hover:text-brand-navy">Calculadora de concreto</a>
+                            <a href="calculadora-solar.html" role="menuitem" class="block px-4 py-2.5 text-sm rounded-lg mx-1 text-brand-gray-700 hover:bg-brand-gray-50 hover:text-brand-navy">Calculadora solar (UNISOLAR)</a>
+                        </div>
+                    </div>
+                </details>
             </nav>
 
             <div class="flex items-center gap-4">
@@ -51,12 +63,15 @@
             <a href="blog.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Blog</a>
             <a href="sobre.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Sobre</a>
             <a href="contato.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Contato</a>
-            <a href="orcamento.html" class="py-3 px-2 border-b border-brand-gray-100 text-brand-navy font-medium">Orçamento</a>
 
-            <p class="text-xs font-bold text-brand-gray-400 uppercase tracking-wider mt-4 mb-2">Ferramentas</p>
-            <a href="calculadora-concreto.html" class="py-2 px-2 text-brand-gray-600">Calculadora de concreto</a>
-            <a href="calculadora-solar.html" class="py-2 px-2 text-brand-gray-600">Calculadora solar (UNISOLAR)</a>
-            <a href="sorteio.html" class="py-2 px-2 text-brand-gray-600">Sorteios</a>
+            <div class="mt-4 pt-2 border-t border-brand-gray-100">
+            <p class="text-xs font-bold text-brand-gray-400 uppercase tracking-wider mb-2">Orçamento</p>
+            <a href="orcamento.html" class="block py-2.5 px-2 rounded-lg text-sm font-semibold text-brand-accent bg-brand-navy/5">Central de orçamentos</a>
+            <a href="calculadora-concreto.html" class="block py-2.5 px-2 rounded-lg text-sm text-brand-gray-700 hover:bg-brand-gray-50">Calculadora de concreto</a>
+            <a href="calculadora-solar.html" class="block py-2.5 px-2 rounded-lg text-sm text-brand-gray-700 hover:bg-brand-gray-50">Calculadora solar (UNISOLAR)</a>
+            </div>
+            <p class="text-xs font-bold text-brand-gray-400 uppercase tracking-wider mt-4 mb-2">Outros</p>
+            <a href="sorteio.html" class="block py-2.5 px-2 rounded-lg text-sm text-brand-gray-700 hover:bg-brand-gray-50">Sorteios</a>
 
         </nav>
     </div>
@@ -125,6 +140,25 @@
                             <p class="text-sm text-brand-gray-500">Agregados</p>
                         </div>
                     </label>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-6 lg:px-12 py-6 relative z-10">
+            <div class="rounded-2xl border border-brand-navy/15 bg-brand-navy/5 px-6 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <p class="text-sm text-brand-gray-700 max-w-xl">
+                    <span class="font-semibold text-brand-navy">Calculadoras</span>
+                    — estimativas interativas para apoiar seu pedido de orçamento na central abaixo.
+                </p>
+                <div class="flex flex-wrap gap-3 shrink-0">
+                    <a href="calculadora-concreto.html" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-brand-gray-200 text-sm font-semibold text-brand-navy hover:border-brand-navy/40 transition-colors">
+                        <i class="fa-solid fa-cube" aria-hidden="true"></i>
+                        Concreto
+                    </a>
+                    <a href="calculadora-solar.html" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-navy text-white text-sm font-semibold hover:bg-brand-navy/90 transition-colors">
+                        <i class="fa-solid fa-solar-panel" aria-hidden="true"></i>
+                        Solar (UNISOLAR)
+                    </a>
                 </div>
             </div>
         </section>
